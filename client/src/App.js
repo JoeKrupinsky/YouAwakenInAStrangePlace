@@ -41,9 +41,11 @@ function App() {
             <NewGame test='test' add={addPlayers} players={[players.player1.name, players.player2.name, players.player3.name]} />
           </Route>
           <Route path='/dice' exact={true}>
-            <Table>
-              {getSkills()}
-            </Table>
+
+              <Skill name='Running'/>
+              <Skill name='Walking'/>
+              <Skill name='Pooping' />
+
           </Route>
         </Switch>
       </header>
