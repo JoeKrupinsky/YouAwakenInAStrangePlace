@@ -84,7 +84,7 @@ class Skill extends React.Component {
     return (
       <React.Fragment>
         <Toaster />
-        <Card style={{width:'40%'}}>
+        <Card style={{borderRadius:'5px',width:'43%'}} bg='info'>
           <Card.Body>
             <Container>
               <Row>
@@ -95,18 +95,21 @@ class Skill extends React.Component {
                     color: "black",
                     border: "1px solid black",
                     borderRadius: "5px",
-                    padding: "5px",
-                    width: "30%",
+                    marginBottom:'0.5em',
+                    width: "30%"
                   }}
                 >
                   {this.props.name.toUpperCase()}
                 </Button>
 
-                <ButtonGroup style={{ marginLeft: "1em" }}>
+                
+              </Row>
+              <Row>
+              <ButtonGroup style={{ marginLeft: "1em" }}>
                   <Button
                     id={this.props.name + "-Minus2"}
                     variant="danger"
-                    size="lg"
+                    size="md"
                     onClick={(e) => rollSkill(e)}
                   >
                     -2
@@ -114,7 +117,7 @@ class Skill extends React.Component {
                   <Button
                     id={this.props.name + "-Minus1"}
                     variant="danger"
-                    size="lg"
+                    size="md"
                     onClick={(e) => rollSkill(e)}
                   >
                     -1
@@ -122,7 +125,7 @@ class Skill extends React.Component {
                   <Button
                     id={this.props.name + "-Base"}
                     variant="primary"
-                    size="lg"
+                    size="md"
                     onClick={(e) => rollSkill(e)}
                   >
                     Base
@@ -130,7 +133,7 @@ class Skill extends React.Component {
                   <Button
                     id={this.props.name + "-Plus1"}
                     variant="success"
-                    size="lg"
+                    size="md"
                     onClick={(e) => rollSkill(e)}
                   >
                     +1
@@ -138,7 +141,7 @@ class Skill extends React.Component {
                   <Button
                     id={this.props.name + "-Plus2"}
                     variant="success"
-                    size="lg"
+                    size="md"
                     onClick={(e) => rollSkill(e)}
                   >
                     +2
