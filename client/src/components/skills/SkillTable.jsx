@@ -33,10 +33,9 @@ class SkillTable extends React.Component {
   };
   render(props) {
     return (
+      /**/
       <React.Fragment>
         <Container>
-          <Row>
-            <Col >
               <h3>Player 1</h3>
               <Table>
                   {this.state.mappedSkills[0]}
@@ -44,8 +43,7 @@ class SkillTable extends React.Component {
                   {this.state.mappedSkills[2]}
                   {this.state.mappedSkills[3]}
                   </Table>
-            </Col>
-            <Col>
+
               <h3>Player 2 Skills</h3>
               <Table name="p2-skills">
 
@@ -55,9 +53,6 @@ class SkillTable extends React.Component {
                   {this.state.mappedSkills[7]}
 
               </Table>
-            </Col>
-          </Row>
-          <Row>
             <Col>
               <h3>Player 3 Skills</h3>
               <Table name="p3-skills">
@@ -76,7 +71,7 @@ class SkillTable extends React.Component {
                 {this.state.mappedSkills[15]}
               </Table>
             </Col>
-          </Row>
+
         </Container>
       </React.Fragment>
     );

@@ -2,7 +2,7 @@ import React from 'react'
 import './App.css';
 import LandingPage from './components/pages/LandingPage'
 import NewGame from './components/pages/NewGame'
-import SkillTable from './components/skills/SkillTable'
+import DMSkillTable from './components/skills/DMSkillTable'
 import { Route, Switch } from 'react-router-dom'
 
 function App() {
@@ -33,7 +33,7 @@ function App() {
             <NewGame test='test' add={addPlayers} players={[players.player1.name, players.player2.name, players.player3.name]} />
           </Route>
           <Route path='/dice' exact={true}>
-            <SkillTable skills={skills}/>
+            <DMSkillTable skills={skills}/>
           </Route>
         </Switch>
       </header>

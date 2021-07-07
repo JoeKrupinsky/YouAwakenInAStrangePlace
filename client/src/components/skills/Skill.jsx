@@ -1,13 +1,21 @@
 import React from "react";
 import "react-dice-complete/dist/react-dice-complete.css";
-import { Container, Row, Button, ButtonGroup, Card } from "react-bootstrap";
+import {
+  Container,
+  Col,
+  Row,
+  Button,
+  ButtonGroup,
+  Card,
+  Table,
+} from "react-bootstrap";
 import toast, { Toaster } from "react-hot-toast";
 
 class Skill extends React.Component {
   render(props) {
     let showResult = (x, y, z, result) => {
       let response = "";
-      toast.remove()
+      toast.remove();
       if (result <= 6) {
         response = toast.error(
           `Uh-oh, looks like you suck at ${
@@ -45,10 +53,13 @@ class Skill extends React.Component {
           }!  You rolled a ${result} (${x}+${y}${z < 0 ? "-" : "+"}${Math.abs(
             z
           )})`,
-          { duration: 3000,style:{
-            background:'green',
-            color:'white'
-          }  }
+          {
+            duration: 3000,
+            style: {
+              background: "green",
+              color: "white",
+            },
+          }
         );
       } else {
         response = toast.error("Oops! Something broke...");
@@ -82,75 +93,75 @@ class Skill extends React.Component {
     };
 
     return (
-      <React.Fragment>
-        <Toaster />
-        <Card style={{borderRadius:'5px',width:'43%'}} bg='info'>
-          <Card.Body>
-            <Container>
-              <Row>
-                <Button
-                  disabled={true}
-                  style={{
-                    backgroundColor: "white",
-                    color: "black",
-                    border: "1px solid black",
-                    borderRadius: "5px",
-                    marginBottom:'0.5em',
-                    width: "30%"
-                  }}
-                >
-                  {this.props.name.toUpperCase()}
-                </Button>
-
-                
-              </Row>
-              <Row>
-              <ButtonGroup style={{ marginLeft: "1em" }}>
-                  <Button
-                    id={this.props.name + "-Minus2"}
-                    variant="danger"
-                    size="md"
-                    onClick={(e) => rollSkill(e)}
-                  >
-                    -2
-                  </Button>
-                  <Button
-                    id={this.props.name + "-Minus1"}
-                    variant="danger"
-                    size="md"
-                    onClick={(e) => rollSkill(e)}
-                  >
-                    -1
-                  </Button>
-                  <Button
-                    id={this.props.name + "-Base"}
-                    variant="primary"
-                    size="md"
-                    onClick={(e) => rollSkill(e)}
-                  >
-                    Base
-                  </Button>
-                  <Button
-                    id={this.props.name + "-Plus1"}
-                    variant="success"
-                    size="md"
-                    onClick={(e) => rollSkill(e)}
-                  >
-                    +1
-                  </Button>
-                  <Button
-                    id={this.props.name + "-Plus2"}
-                    variant="success"
-                    size="md"
-                    onClick={(e) => rollSkill(e)}
-                  >
-                    +2
-                  </Button>
-                </ButtonGroup>
-              </Row>
-            </Container>
-          </Card.Body>
-        </Card>
+      <React.Fragment >
+ 
+          <Card className="col-3"  style={{backgroundColor:"transparent"}}>
+            <Card.Header>
+              <Button
+                disabled={true}
+                style={{
+                  backgroundColor: "black",
+                  fontSize:'2rem',
+                  color: "white",
+                  fontFamily:"Georgia",
+                  border: "1px solid black",
+                  borderRadius: "15px",
+                  marginBottom: "0.5em",
+                }}
+              >
+                {this.props.name.toUpperCase()}
+              </Button>
+            </Card.Header>
+            <Card.Body>
+              <Container>
+                <Row className="ml-5">
+                  <ButtonGroup style={{ marginLeft: "1em" }}>
+                    <Button
+                      id={this.props.name + "-Minus2"}
+                      variant="danger"
+                      size="md"
+                      onClick={(e) => rollSkill(e)}
+                    >
+                      -2
+                    </Button>
+                    <Button
+                      id={this.props.name + "-Minus1"}
+                      variant="danger"
+                      size="md"
+                      onClick={(e) => rollSkill(e)}
+                    >
+                      -1
+                    </Button>
+                    <Button
+                      id={this.props.name + "-Base"}
+                      variant="primary"
+                      size="md"
+                      onClick={(e) => rollSkill(e)}
+                    >
+                      Base
+                    </Button>
+                    <Button
+                      id={this.props.name + "-Plus1"}
+                      variant="success"
+                      size="md"
+                      onClick={(e) => rollSkill(e)}
+                    >
+                      +1
+                    </Button>
+                    <Button
+                      id={this.props.name + "-Plus2"}
+                      variant="success"
+                      size="md"
+                      onClick={(e) => rollSkill(e)}
+                    >
+                      +2
+                    </Button>
+                  </ButtonGroup>
+                </Row>
+              </Container>
+            </Card.Body>
+          </Card>
+          <Toaster />
       </React.Fragment>
     );
   }
