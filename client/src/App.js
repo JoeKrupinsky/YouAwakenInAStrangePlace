@@ -1,8 +1,12 @@
 import React from 'react'
 import './App.css';
 import LandingPage from './components/pages/LandingPage'
-import NewGame from './components/pages/NewGame'
+import NewGameSetup from './components/pages/NewGameSetup'
 import DMSkillTable from './components/skills/DMSkillTable'
+// import SkillV2 from './components/skills/SkillV2'
+import SkillTableV2 from './components/skills/SkillTableV2'
+import PlayerCardBank from './components/players/PlayerCardBank'
+import RulesPage from './components/pages/RulesPage'
 import { Route, Switch } from 'react-router-dom'
 
 function App() {
@@ -29,11 +33,20 @@ function App() {
           <Route path='/' exact={true}>
             <LandingPage />
           </Route>
-          <Route path='/character-creation'>
-            <NewGame test='test' add={addPlayers} players={[players.player1.name, players.player2.name, players.player3.name]} />
+          <Route path='/rules' exact={true}>
+            <RulesPage />
+          </Route>
+          <Route path='/setup'>
+            <NewGameSetup />
           </Route>
           <Route path='/dice' exact={true}>
             <DMSkillTable skills={skills}/>
+          </Route>
+          <Route path='/testV2' exact={true}>
+            <SkillTableV2 skills={skills}/>
+          </Route>
+          <Route path='/player' exact={true}>
+            <PlayerCardBank />
           </Route>
         </Switch>
       </header>
