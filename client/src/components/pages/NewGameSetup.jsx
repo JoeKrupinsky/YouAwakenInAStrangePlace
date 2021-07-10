@@ -93,6 +93,9 @@ function NewGameSetup(props) {
           </div>
         </Collapse>
       </Card.Body>
+      <Card.Footer>
+        <Button size='lg' variant='success'>START YOUR ADVENTURE!</Button>
+      </Card.Footer>
     </Card>
   );
 }

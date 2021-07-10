@@ -3,7 +3,7 @@ import {Container, Row, Col, Card} from "react-bootstrap";
 
 function PlayerCard(props) {
   const {
-    player: {name, desc, hp, skils, res},
+    player: {name, desc, hp, skills, res},
   } = props;
    let formatRes=()=>{
     let numString = "";
@@ -59,14 +59,14 @@ function PlayerCard(props) {
           <Row>
             <Col>
               <p style={{fontSize: ".5em"}}>
-                {props.player.name.toUpperCase() || "NOT FOUND"}
+                {props.player.name.toUpperCase() || "NO NAME"}
               </p>
             </Col>
           </Row>
           <Row>
             <Col>
               <h5 style={{fontSize: ".5em", fontFamily: "Impact"}}>
-                {props.player.desc || "NOT FOUND"}
+                {props.player.desc || "NO DESCRIPTION"}
               </h5>
             </Col>
           </Row>
