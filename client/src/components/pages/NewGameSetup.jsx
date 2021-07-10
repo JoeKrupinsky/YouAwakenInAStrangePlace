@@ -1,35 +1,45 @@
 import {React, useState} from "react";
-import {Button, Collapse, Card, Row,Col} from "react-bootstrap";
+import {Button, Collapse, Card, Row, Col} from "react-bootstrap";
 import PlayerCreationForm from "../players/PlayerCreationForm";
 import WorldCreationForm from "../world/WorldCreationForm";
 import DiceRoller from "../dice/DiceRoller";
+import SkillSelection from "../skills/SkillSelection";
 
 function NewGameSetup(props) {
-  const [pOpen, setPOpen] = useState(false);
   const [wOpen, setWOpen] = useState(true);
-  const buttonCallback=(id)=>{
-    switch(id){
-      case 'player':
+  const [pOpen, setPOpen] = useState(false);
+  const [sOpen, setSOpen] = useState(false);
+  const buttonCallback = (id) => {
+    switch (id) {
+      case "player":
         setPOpen();
         break;
-      case 'world':
+      case "world":
         setWOpen();
         break;
-        default:
-          return;
+      default:
+        return;
     }
-  }
-  const goToSkillSelection=()=>{
-    console.log("Function fired")
-  }
-  const passPlayerInfo=(players)=>{
+  };
+  const passPlayerInfo = (players) => {
     setPOpen(!pOpen);
-    console.log(players);
-  }
-  const passWorldInfo=(world)=>{
+    setSOpen(!sOpen);
+    return props.setInfo("players",players);
+  };
+  const passWorldInfo = (world) => {
     setWOpen(!wOpen);
     setPOpen(!pOpen);
-    console.log(world);
+    return props.setInfo("world",world);
+  };
+  const passSkillInfo=(skillObj)=>{
+    return props.setInfo("skills",skillObj);
+  }
+  const formatNames=()=>{
+    let nameArr = [];
+    nameArr.push(props.players.player1.name);
+    nameArr.push(props.players.player2.name);
+    nameArr.push(props.players.player3.name);
+    return nameArr;
   }
   return (
     <Card
@@ -54,7 +64,7 @@ function NewGameSetup(props) {
         </h5>
         <Collapse in={wOpen}>
           <div>
-            <WorldCreationForm close={buttonCallback} submit={passWorldInfo}/>
+            <WorldCreationForm close={buttonCallback} submit={passWorldInfo} />
           </div>
         </Collapse>
         <h5
@@ -66,15 +76,23 @@ function NewGameSetup(props) {
         </h5>
         <Collapse in={pOpen}>
           <div>
-            <PlayerCreationForm close={buttonCallback} submit={passPlayerInfo}/>
+            <PlayerCreationForm
+              close={buttonCallback}
+              submit={passPlayerInfo}
+            />
+          </div>
+        </Collapse>
+        <Row>
+          <Col>
+            <h5 onClick={()=>setSOpen(!sOpen)}>CHOOSE YOUR SKILLS</h5>
+          </Col>
+        </Row>
+        <Collapse in={sOpen}>
+          <div>
+            <SkillSelection names={formatNames()} close={buttonCallback} submit={passSkillInfo} />
           </div>
         </Collapse>
       </Card.Body>
-      <Row style={{marginBottom:'1%'}}>
-        <Col></Col>
-        <Button onClick={goToSkillSelection}>NEXT STEP: CHOOSE YOUR SKILLS</Button>
-        <Col></Col>
-      </Row>
     </Card>
   );
 }

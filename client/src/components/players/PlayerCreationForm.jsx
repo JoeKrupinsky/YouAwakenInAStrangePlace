@@ -6,12 +6,8 @@ const PlayerCreationForm = (props) => (
   <div>
     <Formik
       initialValues={{
-        playerOneName: "",
-        playerOneDesc: "",
-        playerTwoName: "",
-        playerTwoDesc: "",
-        playerThreeName: "",
-        playerThreeDesc: "",
+        names:['','',''],
+        descriptions:['','','']
       }}
       onSubmit={(values, actions) => {
         // setTimeout(() => {
@@ -41,18 +37,18 @@ const PlayerCreationForm = (props) => (
                     style={{color: "black", margin: "5%"}}
                     onChange={props.handleChange}
                     onBlur={props.handleBlur}
-                    value={props.values.playerOneName}
-                    name="playerOneName"
+                    value={props.values.names[0]}
+                    name="names[0]"
                     placeholder='High Roll'
                   />
-                  {props.errors.playerOneName && (
-                    <div id="feedback">{props.errors.playerOneName}</div>
+                  {props.errors.names && (
+                    <div id="feedback">{props.errors.names}</div>
                   )}
                 </Row>
                 <Row style={{padding: "5%"}}>
                   <label>
                     Describe yourself,{" "}
-                    {props.values.playerOneName.split(" ")[0]}
+                    {props.values.names[0].split(" ")[0]}
                   </label>
                 </Row>
                 <Row>
@@ -63,11 +59,11 @@ const PlayerCreationForm = (props) => (
                     style={{color: "black", margin: "5%"}}
                     onChange={props.handleChange}
                     onBlur={props.handleBlur}
-                    value={props.values.playerOneDesc}
-                    name="playerOneDesc"
+                    value={props.values.descriptions[0]}
+                    name="descriptions[0]"
                   />
-                  {props.errors.playerOneDesc && (
-                    <div id="feedback">{props.errors.playerOneDesc}</div>
+                  {props.errors.descriptions && (
+                    <div id="feedback">{props.errors.descriptions}</div>
                   )}
                 </Row>
               </Col>
@@ -82,18 +78,18 @@ const PlayerCreationForm = (props) => (
                     style={{color: "black", margin: "5%"}}
                     onChange={props.handleChange}
                     onBlur={props.handleBlur}
-                    value={props.values.playerTwoName}
-                    name="playerTwoName"
+                    value={props.values.names[1]}
+                    name="names[1]"
                     placeholder='Middle Roll'
                   />
-                  {props.errors.playerTwoName && (
-                    <div id="feedback">{props.errors.playerTwoName}</div>
+                  {props.errors.names && (
+                    <div id="feedback">{props.errors.names}</div>
                   )}
                 </Row>
                 <Row style={{padding: "5%"}}>
                   <label>
                     Describe yourself,{" "}
-                    {props.values.playerTwoName.split(" ")[0]}
+                    {props.values.names[1].split(" ")[0]}
                   </label>
                 </Row>
                 <Row>
@@ -104,11 +100,11 @@ const PlayerCreationForm = (props) => (
                     style={{color: "black", margin: "5%"}}
                     onChange={props.handleChange}
                     onBlur={props.handleBlur}
-                    value={props.values.playerTwoDesc}
-                    name="playerTwoDesc"
+                    value={props.values.descriptions[1]}
+                    name="descriptions[1]"
                   />
-                  {props.errors.playerTwoDesc && (
-                    <div id="feedback">{props.errors.playerTwoDesc}</div>
+                  {props.errors.descriptions && (
+                    <div id="feedback">{props.errors.descriptions}</div>
                   )}
                 </Row>
               </Col>
@@ -129,18 +125,18 @@ const PlayerCreationForm = (props) => (
                     style={{color: "black", margin: "5%"}}
                     onChange={props.handleChange}
                     onBlur={props.handleBlur}
-                    value={props.values.playerThreeName}
-                    name="playerThreeName"
+                    value={props.values.names[2]}
+                    name="names[2]"
                     placeholder={'Low Roll'}
                   />
-                  {props.errors.playerThreeName && (
-                    <div id="feedback">{props.errors.playerThreeName}</div>
+                  {props.errors.names && (
+                    <div id="feedback">{props.errors.names}</div>
                   )}
                 </Row>
                 <Row style={{padding: "5%"}}>
                   <label>
                     Describe yourself,{" "}
-                    {props.values.playerThreeName.split(" ")[0]}
+                    {props.values.names[2].split(" ")[0]}
                   </label>
                 </Row>
                 <Row>
@@ -151,11 +147,11 @@ const PlayerCreationForm = (props) => (
                     style={{color: "black", margin: "5%"}}
                     onChange={props.handleChange}
                     onBlur={props.handleBlur}
-                    value={props.values.playerThreeDesc}
-                    name="playerThreeDesc"
+                    value={props.values.descriptions[2]}
+                    name="descriptions[2]"
                   />
-                  {props.errors.playerThreeDesc && (
-                    <div id="feedback">{props.errors.playerThreeDesc}</div>
+                  {props.errors.descriptions && (
+                    <div id="feedback">{props.errors.descriptions}</div>
                   )}
                 </Row>
               </Col>

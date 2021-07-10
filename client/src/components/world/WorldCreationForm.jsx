@@ -9,9 +9,7 @@ const WorldCreationForm = (props) => (
         genre: "",
         adjective: "",
         location: "",
-        statementOne:'',
-        statementTwo:'',
-        statementThree:''
+        statements:[]
       }}
       onSubmit={(values, actions) => {
         // setTimeout(() => {
@@ -121,11 +119,11 @@ const WorldCreationForm = (props) => (
                     style={{color: "black", margin: "1%"}}
                     onChange={props.handleChange}
                     onBlur={props.handleBlur}
-                    value={props.values.statementOne}
-                    name="statementOne"
+                    value={props.values.statements[0]}
+                    name="statements[0]"
                   />
-                  {props.errors.statementOne && (
-                    <div id="feedback">{props.errors.statementOne}</div>
+                  {props.errors.statements && (
+                    <div id="feedback">{props.errors.statements}</div>
                   )}
                 </Row>
                
@@ -141,11 +139,11 @@ const WorldCreationForm = (props) => (
                     style={{color: "black", margin: "1%"}}
                     onChange={props.handleChange}
                     onBlur={props.handleBlur}
-                    value={props.values.statementTwo}
-                    name="statementTwo"
+                    value={props.values.statements[1]}
+                    name="statements[1]"
                   />
-                  {props.errors.statementTwo && (
-                    <div id="feedback">{props.errors.statementTwo}</div>
+                  {props.errors.statements && (
+                    <div id="feedback">{props.errors.statements}</div>
                   )}
                 </Row>
               </Col>
@@ -167,11 +165,11 @@ const WorldCreationForm = (props) => (
                     style={{color: "black", margin: "1%"}}
                     onChange={props.handleChange}
                     onBlur={props.handleBlur}
-                    value={props.values.statementThree}
-                    name="statementThree"
+                    value={props.values.statements[2]}
+                    name="statements[2]"
                   />
-                  {props.errors.statementThree && (
-                    <div id="feedback">{props.errors.statementThree}</div>
+                  {props.errors.statements && (
+                    <div id="feedback">{props.errors.statements}</div>
                   )}
                 </Row>
               </Col>
