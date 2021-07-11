@@ -94,7 +94,7 @@ function NewGameSetup(props) {
         </Collapse>
       </Card.Body>
       <Card.Footer>
-        <Button size='lg' variant='success'>START YOUR ADVENTURE!</Button>
+        <Button size='lg' variant='success' onClick={()=>console.log("help")}>START YOUR ADVENTURE!</Button>
       </Card.Footer>
     </Card>
   );

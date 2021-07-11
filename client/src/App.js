@@ -4,15 +4,16 @@ import LandingPage from './components/pages/LandingPage'
 import NewGameSetup from './components/pages/NewGameSetup'
 import SkillTableV2 from './components/skills/SkillTableV2'
 import PlayerCardBank from './components/players/PlayerCardBank'
+import CardLayout from './components/layouts/CardLayout'
 import RulesPage from './components/pages/RulesPage'
 import { Route, Switch } from 'react-router-dom'
 import GameplayPage from './components/pages/GameplayPage';
 
 function App() {
 
-  const [players, setPlayers] = React.useState({ player1: { name: 'Player 1', desc: '', skills: ['running','flying','lying','dying'],hp:10,res:0 }, player2: { name: 'Player 2', desc: '', skills: ['','','',''],hp:10,res:0 }, player3: { name: 'Player 3', desc: '', skills: ['','','',''],hp:10,res:0 }, DM: { name: 'DM', skills: ['','','',''] } })
+  const [players, setPlayers] = React.useState({ player1: { name: 'Player 1', desc: '', skills: ['running', 'flying', 'lying', 'dying'], hp: 10, res: 0 }, player2: { name: 'Player 2', desc: '', skills: ['running2', 'flying2', 'lying2', 'dying2'], hp: 10, res: 0 }, player3: { name: 'Player 3', desc: '', skills: ['running3', 'flying3', 'lying3', 'dying3'], hp: 10, res: 0 }, DM: { name: 'DM', skills: ['running4', 'flying4', 'lying4', 'dying4'] } })
   const [world, setWorld] = React.useState({ genre: '', adjective: '', location: '', statements: [] })
-  const [gameState,setGameState] = React.useState({players,world})
+  const [gameState, setGameState] = React.useState({ players, world })
   const routeNewGameInfo = (id, info) => {
     switch (id) {
       case "players":
@@ -73,13 +74,14 @@ function App() {
     return fullArr;
   }
   const getGameState = () => {
-    const newGameState = {players,world};
+    const newGameState = { players, world };
     console.log(newGameState);
     setGameState(newGameState);
   }
   return (
     <div className="App">
-      <header className="App-header" style={{ height: '100px' }}>
+      <header className="App-header" style={{ height: '100px', backgroundColor: 'grey' }}>
+
         <Switch>
           <Route path='/' exact={true}>
             <LandingPage />
@@ -94,10 +96,11 @@ function App() {
             <SkillTableV2 skills={formatSkills()} />
           </Route>
           <Route path='/player' exact={true}>
-            <PlayerCardBank players={players}/>
+            <PlayerCardBank players={players} />
           </Route>
           <Route path='/play' exact={true}>
-            <GameplayPage gameInfo={gameState}/>
+            <CardLayout content={<GameplayPage gameInfo={gameState} skills={formatSkills()} />} />
+
           </Route>
         </Switch>
       </header>

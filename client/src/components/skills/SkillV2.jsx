@@ -1,5 +1,5 @@
 import React from "react";
-import {Button, Card, Container, Row, Col} from "react-bootstrap";
+import {Button} from "react-bootstrap";
 
 class SkillV2 extends React.Component {
   constructor(props) {
@@ -11,6 +11,7 @@ class SkillV2 extends React.Component {
     return (
       <React.Fragment>
         <Button
+        variant='light'
           className="col-3"
           id={this.props.skill}
           key={this.props.skill}
@@ -18,9 +19,9 @@ class SkillV2 extends React.Component {
           style={{
             color: "black",
             fontSize: ".5em",
-            backgroundColor: "rgb(164, 222, 212)",
+            borderRadius:'0px',
             border: "1px solid black",
-            padding: "5px 15px",
+            padding: "15px 10px"
           }}
         >
           {this.props.skill}{" "}

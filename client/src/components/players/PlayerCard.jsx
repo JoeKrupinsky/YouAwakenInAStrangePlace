@@ -1,11 +1,8 @@
 import React from "react";
-import {Container, Row, Col, Card} from "react-bootstrap";
+import {Row, Col, Card} from "react-bootstrap";
 
 function PlayerCard(props) {
-  const {
-    player: {name, desc, hp, skills, res},
-  } = props;
-   let formatRes=()=>{
+  let formatRes = () => {
     let numString = "";
 
     switch (props.player.res) {
@@ -25,11 +22,11 @@ function PlayerCard(props) {
         numString += "O|O|O|O|O";
         break;
       default:
-        numString += 'X|X|X|X|X'
+        numString += "X|X|X|X|X";
         break;
     }
     return numString;
-  }
+  };
   return (
     <React.Fragment>
       {/* 
@@ -44,12 +41,9 @@ function PlayerCard(props) {
         */}
 
       <Card
-        className="col"
         style={{
-          padding: "5px",
           borderRadius: "10px",
           border: "3px solid #525252",
-          margin: "1px",
           fontFamily: "Pixelmania",
           color: "black",
           backgroundColor: "#f0f0f0",
@@ -72,7 +66,7 @@ function PlayerCard(props) {
           </Row>
         </Card.Header>
         <Card.Body>
-          <Row>
+          <Row style={{borderBottom: "2px solid black"}}>
             <Col>
               <h5>HEALTH</h5>
             </Col>
@@ -83,26 +77,25 @@ function PlayerCard(props) {
             </Col>
           </Row>
           <Row>
-            
-            <Col style={{borderBottom:'1px solid black'}}>
-              <h5 style={{float:'left'}}>SKILL</h5>
+            <Col >
+              <h5 style={{float: "left"}}>SKILL</h5>
             </Col>
-            <Col style={{borderBottom:'1px solid black'}}>
-            <h5 style={{float:'right'}}>MODIFIER</h5>
+            <Col >
+              <h5 style={{float: "right"}}>MOD</h5>
             </Col>
           </Row>
 
           <Row style={{marginTop: "5px"}}>
             {/* Skills */}
             <Col>
-              <Row style={{borderBottom: "1px solid white"}}>
+              <Row style={{borderBottom: "1px dashed grey"}}>
                 <Col>
                   <h5 style={{float: "left"}}>
                     {props.player.skills[0].toUpperCase()}
                   </h5>
                 </Col>
               </Row>
-              <Row style={{borderBottom: "1px solid white"}}>
+              <Row style={{borderBottom: "1px dashed grey"}}>
                 <Col>
                   <h5 style={{float: "left"}}>
                     {props.player.skills[1].toUpperCase()}
@@ -110,7 +103,7 @@ function PlayerCard(props) {
                 </Col>
                 <Col></Col>
               </Row>
-              <Row style={{borderBottom: "1px solid white"}}>
+              <Row style={{borderBottom: "1px dashed grey"}}>
                 <Col>
                   <h5 style={{float: "left"}}>
                     {props.player.skills[2].toUpperCase()}
@@ -127,24 +120,24 @@ function PlayerCard(props) {
               </Row>
             </Col>
             <Col>
-              <Row>
+              <Row >
                 <Col>
-                  <h5 style={{float: "right"}}>=2</h5>
+                  <h5 style={{float: "right", fontSize: "1rem"}}>=2</h5>
+                </Col>
+              </Row>
+              <Row >
+                <Col>
+                  <h5 style={{float: "right", fontSize: "1rem"}}>=1</h5>
+                </Col>
+              </Row>
+              <Row >
+                <Col>
+                  <h5 style={{float: "right", fontSize: "1rem"}}>1</h5>
                 </Col>
               </Row>
               <Row>
                 <Col>
-                  <h5 style={{float: "right"}}>=1</h5>
-                </Col>
-              </Row>
-              <Row>
-                <Col>
-                  <h5 style={{float: "right"}}>1</h5>
-                </Col>
-              </Row>
-              <Row>
-                <Col>
-                  <h5 style={{float: "right"}}>2</h5>
+                  <h5 style={{float: "right", fontSize: "1rem"}}>2</h5>
                 </Col>
               </Row>
             </Col>

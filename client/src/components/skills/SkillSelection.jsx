@@ -1,6 +1,6 @@
 import React from "react";
 import {SkillForm} from "./SkillForm";
-import {Card, Row, Col} from "react-bootstrap";
+import { Row, Col} from "react-bootstrap";
 
 class SkillSelection extends React.Component {
   render(props) {

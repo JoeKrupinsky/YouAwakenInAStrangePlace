@@ -1,5 +1,5 @@
 import React from "react";
-import {Container, Row, Card} from "react-bootstrap";
+import {Container, Row,  Col} from "react-bootstrap";
 import PlayerCard from "./PlayerCard";
 
 class PlayerCardBank extends React.Component {
@@ -7,13 +7,17 @@ class PlayerCardBank extends React.Component {
     return (
       <React.Fragment>
         <Container>
-          <Card>
-            <Row>
+          <Row >
+            <Col className="col-3">
               <PlayerCard player={this.props.players.player1} />
+            </Col>
+            <Col className="col-3">
               <PlayerCard player={this.props.players.player2} />
+            </Col>
+            <Col className="col-3">
               <PlayerCard player={this.props.players.player3} />
-            </Row>{" "}
-          </Card>
+            </Col>
+          </Row>{" "}
         </Container>
       </React.Fragment>
     );
