@@ -8,6 +8,7 @@ import CardLayout from './components/layouts/CardLayout'
 import RulesPage from './components/pages/RulesPage'
 import { Route, Switch } from 'react-router-dom'
 import GameplayPage from './components/pages/GameplayPage';
+import ServerTest from './components/pages/ServerTest';
 
 function App() {
 
@@ -100,7 +101,9 @@ function App() {
           </Route>
           <Route path='/play' exact={true}>
             <CardLayout content={<GameplayPage gameInfo={gameState} skills={formatSkills()} />} />
-
+          </Route>
+          <Route path='/testServer' exact={true}>
+            <CardLayout  content={<ServerTest />}/>
           </Route>
         </Switch>
       </header>
