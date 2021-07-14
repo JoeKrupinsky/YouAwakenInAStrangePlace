@@ -7,6 +7,7 @@ const helmet = require('helmet')
 
 // Import routes
 const playersRouter = require('./routes/players-route')
+const skillsRouter = require('./routes/skills-route')
 
 // Set default port for express app
 const PORT = process.env.PORT || 4001
@@ -22,9 +23,9 @@ app.use(compression())
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 
-// Implement books route
+// Implement routes
 app.use('/players', playersRouter)
-
+app.use('/skills',skillsRouter)
 // Implement 500 error route
 app.use(function (err, req, res, next) {
   console.error(err.stack)
