@@ -1,9 +1,10 @@
 import axios from "axios";
+let endpoint = "http://localhost:4001/skills/";
 
 let add = (payload) => {
   const config = {
     method: "POST",
-    url: "http://localhost:4001/skills/add",
+    url: endpoint+"add",
     data: payload,
     crossdomain: true,
     headers: { "Content-Type": "application/json" },
@@ -14,7 +15,7 @@ let add = (payload) => {
 let get = (payload) => {
     const config = {
       method: "POST",
-      url: "http://localhost:4001/skills/get",
+      url: endpoint+"get",
       data:payload,
       crossdomain: true,
       headers: { "Content-Type": "application/json" },
@@ -25,7 +26,7 @@ let get = (payload) => {
 let getAll = () => {
   const config = {
     method: "GET",
-    url: "http://localhost:4001/skills/all",
+    url: endpoint+"all",
     crossdomain: true,
     headers: { "Content-Type": "application/json" },
   };
@@ -36,7 +37,7 @@ let getAll = () => {
 let remove = (id, onSuccess, onError) => {
   const config = {
     method: "PUT",
-    url: "http://localhost:4001/skills/delete",
+    url: endpoint+"delete",
     data: id,
     crossdomain: true,
     headers: { "Content-Type": "application/json" },
@@ -48,7 +49,7 @@ let remove = (id, onSuccess, onError) => {
 let reset = () => {
   const config = {
     method: "PUT",
-    url: "http://localhost:4001/skills/reset",
+    url: endpoint+"reset",
     crossdomain: true,
     headers: { "Content-Type": "application/json" },
   };

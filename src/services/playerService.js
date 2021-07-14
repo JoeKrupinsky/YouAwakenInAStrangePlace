@@ -1,6 +1,7 @@
 import axios from "axios";
 let endpoint =  'http://localhost:4001/players/'
 
+
 let add = (payload) => {
   const config = {
     method: "POST",
@@ -66,5 +67,5 @@ let update = (payload) => {
   return axios(config);
 };
 
-export { add, get, getAll, remove, reset }; 
+export { add, get, getAll, remove, reset,update }; 
 

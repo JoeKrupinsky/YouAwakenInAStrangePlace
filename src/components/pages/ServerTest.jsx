@@ -5,7 +5,7 @@ import * as playerService from "../../services/playerService";
 
 class ServerTest extends React.Component {
   skillTest = () => {
-    skillService.getAll();
+    //skillService.getAll();
   };
   statementTest = () => {};
   playerTest = () => {
