@@ -48,7 +48,6 @@ knex.schema
     if (!exists) {
       return knex.schema.createTable('skills', (table) => {
         table.increments('id').primary()
-        table.integer('playerId')
         table.string('name')
 
       })
@@ -58,6 +57,33 @@ knex.schema
         })
         .catch((error) => {
           console.error(`There was an error creating Skills table: ${error}`)
+        })
+    }
+  })
+  .then(() => {
+    // Log success message
+    console.log('done')
+  })
+  .catch((error) => {
+    console.error(`There was an error setting up the database: ${error}`)
+  })
+  //PLAYER SKILLS BRIDGE TABLE
+  knex.schema
+  .hasTable('bridge')
+  .then((exists) => {
+    if (!exists) {
+      return knex.schema.createTable('bridge', (table) => {
+        table.increments('id').primary()
+        table.integer('playerId')
+        table.integer('skillId')
+
+      })
+        .then(() => {
+          // Log success message
+          console.log('Table \'PS Bridge\' created')
+        })
+        .catch((error) => {
+          console.error(`There was an error creating Bridge table: ${error}`)
         })
     }
   })
@@ -148,7 +174,5 @@ knex.schema
   .catch((error) => {
     console.error(`There was an error setting up the database: ${error}`)
   })
-
-
 // Export the database
 module.exports = knex

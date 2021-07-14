@@ -3,11 +3,10 @@ const knex = require('../db/db')
 //GetAll,Add,Remove,Reset
 
 exports.add = async (req, res) => {
-  //check if SKill exists in db
+
   knex('skills')
     .insert({
-      "name": req.body.name,
-      "playerId": req.body.playerId
+      "name": req.body.name
     })
     .then((data) => res.json({ message: `${req.body.name} was added to Skills` }))
     .catch((err) => {

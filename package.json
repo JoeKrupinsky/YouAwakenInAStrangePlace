@@ -11,7 +11,9 @@
     "not op_mini all"
   ],
   "main": "/src/index.js",
-  "prox": "http://localhost:4001",
+  "proxy": {"/api/*":{
+    "target":"http://localhost:4001"
+  }},
   "scripts": {
     "build": "node ./buildScript",
     "build-front": "react-scripts build",

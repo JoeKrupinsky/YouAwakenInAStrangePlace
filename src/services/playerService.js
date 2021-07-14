@@ -1,9 +1,21 @@
 import axios from "axios";
+let endpoint =  'http://localhost:4001/players/'
 
 let add = (payload) => {
   const config = {
     method: "POST",
-    url: "http://localhost:4001/players/add",
+    url: endpoint+"add",
+    data: payload,
+    crossdomain: true,
+    headers: { "Content-Type": "application/json" },
+  };
+
+  return axios(config).then((res)=>{return res.data.id});
+};
+let get = (payload) => {
+  const config = {
+    method: "POST",
+    url: endpoint+"get",
     data: payload,
     crossdomain: true,
     headers: { "Content-Type": "application/json" },
@@ -14,7 +26,7 @@ let add = (payload) => {
 let getAll = () => {
   const config = {
     method: "GET",
-    url: "http://localhost:4001/players/all",
+    url: endpoint+"all",
     crossdomain: true,
     headers: { "Content-Type": "application/json" },
   };
@@ -22,11 +34,11 @@ let getAll = () => {
   return axios(config);
 };
 
-let remove = (id, onSuccess, onError) => {
+let remove = (payload, onSuccess, onError) => {
   const config = {
     method: "PUT",
-    url: "http://localhost:4001/players/delete",
-    data: id,
+    url: endpoint+"delete",
+    data: payload,
     crossdomain: true,
     headers: { "Content-Type": "application/json" },
   };
@@ -37,14 +49,22 @@ let remove = (id, onSuccess, onError) => {
 let reset = () => {
   const config = {
     method: "PUT",
-    url: "http://localhost:4001/players/reset",
+    url: endpoint+"reset",
+    crossdomain: true,
+    headers: { "Content-Type": "application/json" },
+  };
+  return axios(config);
+};
+let update = (payload) => {
+  const config = {
+    method: "PUT",
+    url: endpoint+"update",
+    data: payload,
     crossdomain: true,
     headers: { "Content-Type": "application/json" },
   };
   return axios(config);
 };
 
-export { add, getAll, remove, reset }; // export all your calls here
+export { add, get, getAll, remove, reset }; 
 
-// if you had three functions to export
-// export { logIn, register, thirdFunction }
