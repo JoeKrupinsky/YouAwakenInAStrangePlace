@@ -1,62 +1,80 @@
-const knex = require('../db/db')
+const knex = require("../db/db");
 
 //GetAll,Add,Remove,Reset
 
 exports.add = async (req, res) => {
-
-  knex('skills')
+  knex("skills")
     .insert({
-      "name": req.body.name
+      name: req.body.name,
+      playerId: req.body.playerId,
     })
-    .then((data) => res.json({ message: `${req.body.name} was added to Skills` }))
+    .then((data) =>
+      res.json({ message: `${req.body.name} was added to Skills` })
+    )
     .catch((err) => {
-      res.json({ message: `Error adding ${req.body.name} to Skills` })
+      res.json({ message: `Error adding ${req.body.name} to Skills` });
+    });
+};
+exports.addMulti = async (req, res) => {
+  knex
+    .batchInsert("skills", req.body.skills)
+    .then((result) => {
+      res.json(result);
     })
-}
+    .catch((err) => {
+      res.json(err);
+    });
+};
 exports.get = async (req, res) => {
-  knex.select("*").from("skills").where({"name":req.body.name})
+  knex
+    .select("*")
+    .from("skills")
+    .where({ name: req.body.name })
     .then((data) => {
-      res.json({message:data})
+      res.json({ message: data });
     })
     .catch((err) => {
-
       res.json({ message: err });
-    })
-}
+    });
+};
 
 exports.getAll = async (req, res) => {
-  knex.select('*').from('skills')
+  knex
+    .select("*")
+    .from("skills")
     .then((userData) => {
-      res.json(userData)
+      res.json(userData);
     })
     .catch((err) => {
-      res.json({ 'message': `There was an error retrieving skills: ${err}` })
-    })
-}
+      res.json({ message: `There was an error retrieving skills: ${err}` });
+    });
+};
 exports.remove = async (req, res) => {
-  knex('skills')
-    .where('id', req.body.id) // find correct record based on id
+  knex("skills")
+    .where("id", req.body.id) // find correct record based on id
     .del() // delete the record
     .then(() => {
       // Send a success message in response
-      res.json({ message: `Skill ${req.body.id} deleted.` })
+      res.json({ message: `Skill ${req.body.id} deleted.` });
     })
-    .catch(err => {
+    .catch((err) => {
       // Send a error message in response
-      res.json({ message: `There was an error deleting ${req.body.id}: ${err}` })
-    })
-}
+      res.json({
+        message: `There was an error deleting ${req.body.id}: ${err}`,
+      });
+    });
+};
 exports.reset = async (req, res) => {
   knex
-    .select('*') // select all records
-    .from('skills') // from 'books' table
+    .select("*") // select all records
+    .from("skills") // from 'books' table
     .truncate() // remove the selection
     .then(() => {
       // Send a success message in response
-      res.json({ message: 'Skills cleared.' })
+      res.json({ message: "Skills cleared." });
     })
-    .catch(err => {
+    .catch((err) => {
       // Send a error message in response
-      res.json({ message: `There was an error resetting Skills: ${err}.` })
-    })
-}
+      res.json({ message: `There was an error resetting Skills: ${err}.` });
+    });
+};

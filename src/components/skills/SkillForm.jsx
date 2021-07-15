@@ -30,8 +30,7 @@ export const SkillForm = (props) => (
       initialValues={{skills: ["", "", "", ""]}}
       onSubmit={(values) => {
         let skills = values.skills
-        let skillObj = {skills, name: props.name};
-        console.log(skillObj)
+        let skillObj = {skills, player:props.id};
         return props.submit(skillObj);
       }}
       render={({values}) => (

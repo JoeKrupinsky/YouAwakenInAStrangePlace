@@ -8,6 +8,7 @@ const router = express.Router()
 
 
 router.get('/all', skillsRoutes.getAll)
+router.post('/addMulti',skillsRoutes.addMulti)
 router.post('/get',skillsRoutes.get)
 router.post('/add', skillsRoutes.add)
 router.put('/delete', skillsRoutes.remove)

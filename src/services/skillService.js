@@ -12,6 +12,17 @@ let add = (payload) => {
 
   return axios(config);
 };
+let addMulti = (payload) => {
+  const config = {
+    method: "POST",
+    url: endpoint+"addMulti",
+    data: payload,
+    crossdomain: true,
+    headers: { "Content-Type": "application/json" },
+  };
+
+  return axios(config);
+};
 let get = (payload) => {
     const config = {
       method: "POST",
@@ -57,7 +68,7 @@ let reset = () => {
 };
 
 
-export { add, get, getAll, remove, reset }; // export all your calls here
+export { add,addMulti, get, getAll, remove, reset }; // export all your calls here
 
 // if you had three functions to export
 // export { logIn, register, thirdFunction }

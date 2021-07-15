@@ -51,22 +51,16 @@ function NewGameSetup(props) {
     
     let newWorldId = response.data.res[0];
     let formattedArr = [];
-    for(let i = 0; i< statements.length;i++)
-    {
-      let statementObj = {"worldId":newWorldId, "text":statements[i]};
-      console.log(statementObj);
-      formattedArr.push(statementObj);
-    }
+    statements.forEach(x=>{
+      formattedArr.push({"worldId":newWorldId,"text":x})
+    })
     stSvc.addMulti({"statements":formattedArr})
     .then((result)=>console.log(result))
     .catch(err=>console.log(err))
 
   };
   const onWorldAddError = (err) => {};
-  const submitSkills = (skillObj) => {
-    alert(skills);
-    // return props.setInfo("skills",skillObj);
-  };
+  
   const submitPlayers = (playerData) => {
     setPOpen(!pOpen);
     setSOpen(!sOpen);
@@ -84,6 +78,20 @@ function NewGameSetup(props) {
     setNames(names);
   };
   const onPlayerAddError = (err) => {console.log(err)};
+  const submitSkills = (skillObj) => {
+    let pId = skillObj.player;
+    let skills = skillObj.skills;
+    let submitArr = [];
+    skills.forEach(skill=>
+      {submitArr.push({"name":skill,"playerId":pId})}
+      )   
+      console.log(submitArr);
+      skillSvc.addMulti({"skills":submitArr})
+      .then(res=>onSkillAddSuccess(res))
+      .catch(err=>onSKillAddError(err)) 
+  };
+  const onSkillAddSuccess =(res)=>{console.log(res)};
+  const onSkillAddError =(err)=>{console.log(err)};
   
   return (
     <Card
