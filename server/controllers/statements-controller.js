@@ -13,6 +13,11 @@ exports.add = async (req, res) => {
       res.json({ message: `Error adding statement ` })
     })
 }
+exports.addMultiple = async (req,res) => {
+  knex.batchInsert('statements',req.body.statements)
+  .then((data)=>{res.json(data)})
+  .catch((err)=>{res.json({message:err})})
+}
 exports.get = async (req, res) => {
   knex('statements')
     .where({ 'id': req.body.id })

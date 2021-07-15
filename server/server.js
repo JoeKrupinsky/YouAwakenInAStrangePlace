@@ -26,11 +26,11 @@ app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 
 // Implement routes
-app.use('/players', playersRouter)
-app.use('/skills',skillsRouter)
-app.use('/worlds',worldsRouter)
-app.use('/heroes',heroesRouter)
-app.use('./statements',statementsRouter)
+app.use('/api/players', playersRouter)
+app.use('/api/skills',skillsRouter)
+app.use('/api/worlds',worldsRouter)
+app.use('/api/heroes',heroesRouter)
+app.use('/api/statements',statementsRouter)
 
 // Implement 500 error route
 app.use(function (err, req, res, next) {

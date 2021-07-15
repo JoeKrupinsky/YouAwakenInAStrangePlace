@@ -1,5 +1,5 @@
 import axios from "axios";
-let endpoint = "http://localhost:4001/skills/";
+let endpoint = "http://localhost:4001/api/skills/";
 
 let add = (payload) => {
   const config = {

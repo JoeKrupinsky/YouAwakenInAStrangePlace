@@ -27,8 +27,8 @@ exports.add = async (req, res) => {
     .insert({ 
       'name': req.body.name,
       'description': req.body.description,
-      'health': 10,
-      'resources': 5
+      'health': "10",
+      'resources': "5"
     })
     .then((data) => {
       // Send a success message in response
@@ -38,6 +38,11 @@ exports.add = async (req, res) => {
       // Send a error message in response
       res.json({ message: `There was an error creating ${req.body.name} player: ${err}` })
     })
+}
+exports.addMulti = async (req,res)=> {
+  knex.batchInsert('players',req.body.players)
+  .then((result)=>{res.json(result)})
+  .catch((err)=>{res.json(err)})
 }
 
 exports.remove = async (req, res) => {

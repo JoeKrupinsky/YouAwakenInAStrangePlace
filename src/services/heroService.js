@@ -1,5 +1,5 @@
 import axios from "axios";
-let endpoint = 'http://localhost:4001/heroes/'
+let endpoint = 'http://localhost:4001/api/heroes/'
 
 
 let add = (payload) => {

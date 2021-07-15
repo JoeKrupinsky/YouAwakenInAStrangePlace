@@ -1,5 +1,5 @@
 import axios from "axios";
-let endpoint = 'http://localhost:4001/worlds/'
+let endpoint = 'http://localhost:4001/api/worlds/'
 
 
 let add = (payload) => {
