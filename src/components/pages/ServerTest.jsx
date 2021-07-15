@@ -2,6 +2,7 @@ import React from "react";
 import {Button, Row, Col} from "react-bootstrap";
 import * as skillService from "../../services/skillService";
 import * as playerService from "../../services/playerService";
+import * as wSvc from "../../services/worldService";
 
 class ServerTest extends React.Component {
   skillTest = () => {
@@ -25,7 +26,33 @@ class ServerTest extends React.Component {
     // playerService.reset();
     // playerService.getAll();
   };
-  worldTest = () => {};
+  worldTest = () => {
+    // wSvc
+    //   .add({genre: "horror", adjective: "spooky", location: "ghost ship"})
+    //   .then((res) => {
+    //      this.onWorldAddSuccess(res);
+    //   })
+    //   .catch((err) => {       
+    //      this.onWorldAddError(err);
+    //   });
+    wSvc.getAll();   
+  };
+  // onWorldAddSuccess = (response) => {
+  //   console.log(response);
+  //   let newId = response.data.res[0];
+  //   wSvc.get({id:newId}).then(res=>this.onWorldGetSuccess(res)).catch(err=>{this.onWorldGetError(err)});
+  // }  
+  // onWorldAddError=(err)=>{
+  //   console.log(err);
+  // }
+  // onWorldGetSuccess=(response)=>{
+  //   console.log(response);
+  //   let newId = response.data[0].id;
+  //   wSvc.remove({id:newId}).then(response=>{wSvc.get({id:newId}).then(r=>wSvc.reset())});
+  // };
+  // onWorldGetError=(err)=>{
+  //   console.log(err)
+  // };
   bridgeTest = () => {};
   heroTest = () => {};
 
@@ -33,7 +60,7 @@ class ServerTest extends React.Component {
     return (
       <React.Fragment>
         <Row>
-          <Button variant="primary" onClick={this.skillTest}>
+          <Button variant="primary" onClick={this.worldTest}>
             WORLDS
           </Button>
           <Button variant="primary" onClick={this.statementTest}>
@@ -44,13 +71,13 @@ class ServerTest extends React.Component {
           </Button>
         </Row>
         <Row>
-          <Button variant="primary" onClick={this.testMethod}>
+          <Button variant="primary" onClick={this.skillTest}>
             SKILLS
           </Button>
-          <Button variant="primary" onClick={this.testMethod}>
+          <Button variant="primary" onClick={this.bridgeTest}>
             BRIDGE
           </Button>
-          <Button variant="primary" onClick={this.testMethod}>
+          <Button variant="primary" onClick={this.heroTest}>
             HEROES
           </Button>
         </Row>

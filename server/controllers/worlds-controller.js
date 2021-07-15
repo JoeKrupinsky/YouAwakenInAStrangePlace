@@ -4,7 +4,7 @@ const knex = require('../db/db')
 exports.get = async (req, res) => {
     knex('worlds')
         .where({ 'id': req.body.id })
-        .then(userData => {
+        .then(worldData => {
             res.json(worldData)
         })
         .catch(err => {
@@ -28,11 +28,11 @@ exports.add = async (req, res) => {
         .insert({
             'genre': req.body.genre,
             'adjective': req.body.adjective,
-            'location': rec.body.location
+            'location': req.body.location
         })
         .then((data) => {
             // Send a success message in response
-            res.json({ message: `World created.`, id: data[0] })
+            res.json({ message: `World created.`,res:data})
         })
         .catch(err => {
             // Send a error message in response

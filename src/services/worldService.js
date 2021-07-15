@@ -11,7 +11,7 @@ let add = (payload) => {
         headers: { "Content-Type": "application/json" },
     };
 
-    return axios(config).then((res) => { return res.data.id });
+    return axios(config);
 };
 let get = (payload) => {
     const config = {

@@ -5,6 +5,10 @@ import WorldCreationForm from "../world/WorldCreationForm";
 import DiceRoller from "../dice/DiceRoller";
 import SkillSelection from "../skills/SkillSelection";
 
+import * as skillSvc from '../../services/skillService'
+import * as worldSvc from '../../services/worldService'
+import * as stSvc from '../../services/statementService'
+
 function NewGameSetup(props) {
   const [wOpen, setWOpen] = useState(true);
   const [pOpen, setPOpen] = useState(false);
@@ -24,15 +28,28 @@ function NewGameSetup(props) {
   const passPlayerInfo = (players) => {
     setPOpen(!pOpen);
     setSOpen(!sOpen);
-    return props.setInfo("players",players);
+    alert(players)
+    // return props.setInfo("players",players);
   };
-  const passWorldInfo = (world) => {
+  const submitWorld = (world) => {
     setWOpen(!wOpen);
     setPOpen(!pOpen);
-    return props.setInfo("world",world);
+    // return props.setInfo("world",world);
+    let worldReq = {genre:world.genre,adjective:world.adjective,location:world.location};
+    let statementArr = world.statements;
+    worldSvc.add(worldReq).then(res=>{onWorldAddSuccess(res,statementArr)}).catch(err=>{onWorldAddError(err)});
+    
   };
+  const onWorldAddSuccess=(response, statements)=>{
+    console.log(statements);
+    let newWorldId = response.data.res[0];
+    //NEXT ADD STATEMENTS WITH NEW WORLD ID
+    //NEED BATCH ADD FOR STATEMENTS TABLE 
+  }
+  const onWorldAddError=(err)=>{}
   const passSkillInfo=(skillObj)=>{
-    return props.setInfo("skills",skillObj);
+    alert(skills)
+    // return props.setInfo("skills",skillObj);
   }
   const formatNames=()=>{
     let nameArr = [];
@@ -64,7 +81,7 @@ function NewGameSetup(props) {
         </h5>
         <Collapse in={wOpen}>
           <div>
-            <WorldCreationForm close={buttonCallback} submit={passWorldInfo} />
+            <WorldCreationForm close={buttonCallback} submit={submitWorld} />
           </div>
         </Collapse>
         <h5
