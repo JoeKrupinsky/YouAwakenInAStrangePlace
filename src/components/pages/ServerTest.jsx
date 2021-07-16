@@ -3,7 +3,7 @@ import {Button, Row, Col} from "react-bootstrap";
 import * as skillService from "../../services/skillService";
 import * as playerService from "../../services/playerService";
 import * as wSvc from "../../services/worldService";
-
+import {initializeGame} from '../../services/gameService'
 class ServerTest extends React.Component {
   skillTest = () => {
     //skillService.getAll();
@@ -32,16 +32,16 @@ class ServerTest extends React.Component {
     //   .then((res) => {
     //      this.onWorldAddSuccess(res);
     //   })
-    //   .catch((err) => {       
+    //   .catch((err) => {
     //      this.onWorldAddError(err);
     //   });
-    wSvc.getAll();   
+    // wSvc.getAll();
   };
   // onWorldAddSuccess = (response) => {
   //   console.log(response);
   //   let newId = response.data.res[0];
   //   wSvc.get({id:newId}).then(res=>this.onWorldGetSuccess(res)).catch(err=>{this.onWorldGetError(err)});
-  // }  
+  // }
   // onWorldAddError=(err)=>{
   //   console.log(err);
   // }
@@ -53,9 +53,10 @@ class ServerTest extends React.Component {
   // onWorldGetError=(err)=>{
   //   console.log(err)
   // };
-  bridgeTest = () => {};
   heroTest = () => {};
-
+  gameTest=()=>{
+    initializeGame();
+  }
   render() {
     return (
       <React.Fragment>
@@ -80,6 +81,7 @@ class ServerTest extends React.Component {
           <Button variant="primary" onClick={this.heroTest}>
             HEROES
           </Button>
+          <Button variant="danger" onClick={this.gameTest}></Button>
         </Row>
       </React.Fragment>
     );

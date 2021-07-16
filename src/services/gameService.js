@@ -3,55 +3,61 @@ import * as wSvc from "./worldService";
 import * as pSvc from "./playerService";
 import * as smSvc from "./statementService";
 import * as kSvc from "./skillService";
-import { ENUMMEMBER_TYPES } from "@babel/types";
+import * as endService from './endService'
+
 
 let gameObject = {
   world: {
     genre: "",
     adjective: "",
     location: "",
-    statements: ["", "", ""],
+    statements: [],
   },
   players: {
     player1: {
+      id: 0,
       name: "",
       description: "",
       health: "",
-      resources: "",
-      skills: [],
+      resources: ""
     },
     player2: {
+      id: 1,
       name: "",
       description: "",
       health: "",
-      resources: "",
-      skills: [],
+      resources: ""
     },
     player3: {
+      id: 2,
       name: "",
       description: "",
       health: "",
-      resources: "",
-      skills: [],
+      resources: ""
     },
+    skills:[]
   },
   current: false,
 };
 const initializeGame = async () => {
+  //build game state from database
+  //to be passed into GameplayPage
   await getWorld();
   await getStatements();
   await getPlayers();
   await getSkills();
-
-  console.log(gameObject);
+  
+  return gameObject;
 };
 
 const getWorld = () => {
   wSvc.getAll().then(onGetWorldSuccess).catch(onGetWorldError);
 };
-const onGetWorldSuccess = (data) => {
-  //
-  console.log(world);
+const onGetWorldSuccess = (response) => {
+  let world = response.data[0];
+  gameObject.world.genre = world.genre;
+  gameObject.world.adjective = world.adjective;
+  gameObject.world.location = world.location;
 };
 const onGetWorldError = (err) => {
   return { message: err };
@@ -59,18 +65,49 @@ const onGetWorldError = (err) => {
 const getStatements = (world) => {
   smSvc.getAll().then(onGetStatementsSuccess).catch(onGetStatementsError);
 };
-const onGetStatementsSuccess = (data) => {
-  //
+const onGetStatementsSuccess = (response) => {
+  let statements = response.data;
+  statements.forEach(x => {
+    gameObject.world.statements.push(x.text);
+  })
+    ;
 };
-const onGetStatementsError = () => {};
-const getPlayers = () => {};
-const onGetPlayersSuccess = (world) => {
-  //
+const onGetStatementsError = (err) => {
+  return { message: err };
 };
-const onGetPlayersError = () => {};
+const getPlayers = () => {
+  pSvc.getAll()
+    .then(onGetPlayersSuccess)
+    .catch(onGetPlayersError)
+};
+const onGetPlayersSuccess = (response) => {
+  let playerArr = response.data;
+  gameObject.players.player1 = playerArr[0];
+  gameObject.players.player2 = playerArr[1];
+  gameObject.players.player3 = playerArr[2];
+};
+const onGetPlayersError = (err) => {
+  return { message: err };
+};
 
-const getSkills = () => {};
-const onGetSkillsSuccess = (world) => {
-  //
+const getSkills = () => {
+  kSvc.getAll()
+    .then(onGetSkillsSuccess)
+    .catch(onGetSkillsError)
 };
-const onGetSkillsError = () => {};
+const onGetSkillsSuccess = (response) => {
+  let skillArr = response.data;
+  skillArr.forEach(x=>{
+    gameObject.players.skills.push(x.name);
+  })
+  console.log(gameObject);
+};
+const onGetSkillsError = (err) => {
+  return { message: err };
+};
+
+const endGame = async () => {
+   endService.endGame();
+};
+
+export { initializeGame }

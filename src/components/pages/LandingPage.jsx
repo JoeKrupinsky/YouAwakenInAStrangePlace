@@ -44,7 +44,7 @@ function LandingPage(props) {
                 </Button>
               </Col>
               <Col>
-                <Button variant="success" href="/continue">
+                <Button variant="success" href="/play">
                   Continue an Adventure?
                 </Button>
               </Col>

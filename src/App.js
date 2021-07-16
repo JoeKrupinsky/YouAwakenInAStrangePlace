@@ -9,9 +9,10 @@ import RulesPage from './components/pages/RulesPage'
 import { Route, Switch } from 'react-router-dom'
 import GameplayPage from './components/pages/GameplayPage';
 import ServerTest from './components/pages/ServerTest';
+import {initializeGame} from './services/gameService';
+import ObliterationPage from './components/pages/ObliterationPage'
 
 function App() {
-
   // const [players, setPlayers] = React.useState({ player1: { name: 'Player 1', desc: '', skills: ['running', 'flying', 'lying', 'dying'], hp: 10, res: 0 }, player2: { name: 'Player 2', desc: '', skills: ['running2', 'flying2', 'lying2', 'dying2'], hp: 10, res: 0 }, player3: { name: 'Player 3', desc: '', skills: ['running3', 'flying3', 'lying3', 'dying3'], hp: 10, res: 0 }, DM: { name: 'DM', skills: ['running4', 'flying4', 'lying4', 'dying4'] } })
   // const [world, setWorld] = React.useState({ genre: '', adjective: '', location: '', statements: [] })
   // const [gameState, setGameState] = React.useState({ players, world })
@@ -74,11 +75,12 @@ function App() {
   //   fullArr.push(...players.DM.skills);
   //   return fullArr;
   // }
-  const getGameState = () => {
-    const newGameState = { players, world };
-    console.log(newGameState);
-    setGameState(newGameState);
+  const getGameState = async () => {
+    
+    let gameState = await initializeGame();
+    return gameState;
   }
+  
   return (
     <div className="App">
       <header className="App-header" style={{ height: '100px', backgroundColor: 'grey' }}>
@@ -97,10 +99,13 @@ function App() {
             <PlayerCardBank  />
           </Route>
           <Route path='/play' exact={true}>
-            <CardLayout content={<GameplayPage  />} />
+            <CardLayout content={<GameplayPage  gameInfo={getGameState} />} />
           </Route>
           <Route path='/testServer' exact={true}>
             <CardLayout  content={<ServerTest />}/>
+          </Route>
+          <Route path='/lastChance' exact={true}>
+            <CardLayout  content={<ObliterationPage />}/>
           </Route>
         </Switch>
       </header>

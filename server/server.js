@@ -11,6 +11,7 @@ const skillsRouter = require('./routes/skills-route')
 const worldsRouter = require('./routes/worlds-route')
 const heroesRouter = require('./routes/heroes-route')
 const statementsRouter = require('./routes/statements-route')
+const endRouter = require('./routes/end-route')
 // Set default port for express app
 const PORT = process.env.PORT || 4001
 
@@ -31,6 +32,7 @@ app.use('/api/skills',skillsRouter)
 app.use('/api/worlds',worldsRouter)
 app.use('/api/heroes',heroesRouter)
 app.use('/api/statements',statementsRouter)
+app.use('/api/end',endRouter)
 
 // Implement 500 error route
 app.use(function (err, req, res, next) {

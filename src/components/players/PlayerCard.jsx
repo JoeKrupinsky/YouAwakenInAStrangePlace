@@ -59,8 +59,8 @@ function PlayerCard(props) {
           </Row>
           <Row>
             <Col>
-              <h5 style={{fontSize: ".5em", fontFamily: "Impact"}}>
-                {props.player.desc || "NO DESCRIPTION"}
+              <h5 style={{fontSize: ".5em", fontFamily: "arial"}}>
+                {props.player.description}
               </h5>
             </Col>
           </Row>
@@ -90,31 +90,31 @@ function PlayerCard(props) {
             <Col>
               <Row style={{borderBottom: "1px dashed grey"}}>
                 <Col>
-                  <h5 style={{float: "left",fontSize:'.5em'}}>
-                    {props.player.skills[0].toUpperCase()}
+                  <h5 style={{float: "left",fontSize:'.4em'}}>
+                    {props.skills[0]?props.skills[0].toUpperCase() : "SKILL 1"}
                   </h5>
                 </Col>
               </Row>
               <Row style={{borderBottom: "1px dashed grey"}}>
                 <Col>
-                  <h5 style={{float: "left",fontSize:'.5em'}}>
-                    {props.player.skills[1].toUpperCase()}
+                  <h5 style={{float: "left",fontSize:'.4em'}}>
+                    {props.skills[1]?props.skills[1].toUpperCase() : "SKILL 1"}
                   </h5>
                 </Col>
                 <Col></Col>
               </Row>
               <Row style={{borderBottom: "1px dashed grey"}}>
                 <Col>
-                  <h5 style={{float: "left",fontSize:'.5em'}}>
-                    {props.player.skills[2].toUpperCase()}
+                  <h5 style={{float: "left",fontSize:'.4em'}}>
+                    {props.skills[2]?props.skills[2].toUpperCase() : "SKILL 1"}
                   </h5>
                 </Col>
                 <Col></Col>
               </Row>
               <Row>
                 <Col>
-                  <h5 style={{float: "left",fontSize:'.5em'}}>
-                    {props.player.skills[3].toUpperCase()}
+                  <h5 style={{float: "left",fontSize:'.4em'}}>
+                    {props.skills[3]?props.skills[3].toUpperCase() : "SKILL 1"}
                   </h5>
                 </Col>
               </Row>
@@ -122,22 +122,22 @@ function PlayerCard(props) {
             <Col>
               <Row >
                 <Col>
-                  <h5 style={{float: "right", fontSize: "1rem"}}>=2</h5>
+                  <h5 style={{float: "right", fontSize: "1.5rem",fontFamily:'EarthMomma'}}>-2</h5>
                 </Col>
               </Row>
               <Row >
                 <Col>
-                  <h5 style={{float: "right", fontSize: "1rem"}}>=1</h5>
+                  <h5 style={{float: "right", fontSize: "1rem",fontFamily:'EarthMomma'}}>11</h5>
                 </Col>
               </Row>
               <Row >
                 <Col>
-                  <h5 style={{float: "right", fontSize: "1rem"}}>1</h5>
+                  <h5 style={{float: "right", fontSize: "1rem",fontFamily:'EarthMomma'}}>1</h5>
                 </Col>
               </Row>
               <Row>
                 <Col>
-                  <h5 style={{float: "right", fontSize: "1rem"}}>2</h5>
+                  <h5 style={{float: "right", fontSize: "1rem",fontFamily:'EarthMomma'}}>2</h5>
                 </Col>
               </Row>
             </Col>
