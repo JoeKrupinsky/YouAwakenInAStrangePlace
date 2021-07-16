@@ -1,30 +1,20 @@
-import React,{useState} from "react";
+import React, { useState } from "react";
 import "./App.css";
 import LandingPage from "./components/pages/LandingPage";
 import NewGameSetup from "./components/pages/NewGameSetup";
-import SkillTableV2 from "./components/skills/SkillTableV2";
-import PlayerCardBank from "./components/players/PlayerCardBank";
 import CardLayout from "./components/layouts/CardLayout";
 import RulesPage from "./components/pages/RulesPage";
 import { Route, Switch } from "react-router-dom";
 import GameplayPage from "./components/pages/GameplayPage";
-import ServerTest from "./components/pages/ServerTest";
-import { initializeGame } from "./services/gameService";
+import LoadingPage from './components/pages/LoadingPage'
+
 import ObliterationPage from "./components/pages/ObliterationPage";
 
 function App() {
-  const [gameState, setGameState] = useState(
-    false);
-  const [isReady,setIsReady] = useState(false);
-  // const getGameState =  async () => {
-  //   let gameState =  await initializeGame();
-  //   await setGameState(gameState);
-    
-  //     setIsReady(true);
-    
-  // };
-  
-
+  const [gameInfo,setGameInfo]=useState({});
+  const infoLoaded=(data)=>{
+    setGameInfo(data);
+  }
   return (
     <div className="App">
       <header
@@ -41,15 +31,13 @@ function App() {
           <Route path="/setup">
             <NewGameSetup />
           </Route>
-          <Route path="/player" exact={true}>
-            <PlayerCardBank />
+          <Route path="/loading" exact={true}>
+            <CardLayout content={<LoadingPage submit={infoLoaded}/>} />
           </Route>
           <Route path="/play" exact={true}>
-            <CardLayout content={<GameplayPage />} />
+            <CardLayout content={<GameplayPage info={gameInfo}/>} />
           </Route>
-          <Route path="/testServer" exact={true}>
-            <CardLayout content={<ServerTest />} />
-          </Route>
+
           <Route path="/lastChance" exact={true}>
             <CardLayout content={<ObliterationPage />} />
           </Route>

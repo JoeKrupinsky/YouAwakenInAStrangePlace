@@ -100,7 +100,7 @@ const onGetSkillsSuccess = (response) => {
   skillArr.forEach(x=>{
     gameObject.players.skills.push(x.name);
   })
-  console.log(gameObject);
+
 };
 const onGetSkillsError = (err) => {
   return { message: err };

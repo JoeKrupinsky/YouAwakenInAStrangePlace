@@ -7,7 +7,7 @@ import { initializeGame } from "../../services/gameService";
 class GameplayPage extends React.Component {
   constructor(props) {
     super(props);
-    this.bind(this);
+    
     this.state = {
       world: {
         genre: "",
@@ -41,52 +41,14 @@ class GameplayPage extends React.Component {
           
         ],
       },
-      skillsReady: false,
-      playersReady: false,
+
     };
   }
-  componentDidMount = () => {
-    initializeGame().then(this.onGetStateSuccess).catch(this.onGetErrorSuccess);
-  };
-
-  onGetStateSuccess = (response) => {
-    this.setState((prevState) => {
-      let newState = { ...prevState };
-      newState = response;
-      return newState;
-    },console.log('STATE GET'));
-  };
-  onGetStateError = (err) => {
-    console.log(err);
-  };
-  updatePage = () => {
-    return this.forceUpdate();
-  };
-  readySkills = () => {
-    debugger;
-    this.setState((prevState)=>{
-      let newState = {...prevState};
-      newState.skillsReady = true;
-      return newState;
-    },this.checkReady);
-  };
-  readyPlayers = () => {
-    
-    this.setState((prevState)=>{
-      let newState={...prevState};
-      newState.playersReady = true;
-      return newState;
-    },this.checkReady);
-  };
-  checkReady=()=>{
-    if(this.state.skillsReady && this.state.playersReady){
-      return this.forceUpdate();
-    }
-    else
-    {
-      console.log("CHECKED BUT NOT READY")
-    }
-  }
+componentDidMount=()=>{
+  console.log(this.props.info);
+} 
+  
+ 
   render(props) {
     return (
       <React.Fragment>
