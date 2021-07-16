@@ -170,7 +170,7 @@ function NewGameSetup(props) {
         </Collapse>
       </Card.Body>
       <Card.Footer>
-        <Button size="lg" variant="success" onClick={initializeGame}>
+        <Button size="lg" variant="success" onClick={console.log('NOTHING HERE YET')}>
           START YOUR ADVENTURE!
         </Button>
       </Card.Footer>

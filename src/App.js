@@ -14,63 +14,15 @@ import ObliterationPage from "./components/pages/ObliterationPage";
 
 function App() {
   const [gameState, setGameState] = useState(
-    {
-      world: {
-        genre: "",
-        adjective: "",
-        location: "",
-        statements: [],
-      },
-      players: {
-        player1: {
-          id: 0,
-          name: "Player One",
-          description: "placeholder One",
-          health: 10,
-          resources: 0,
-        },
-        player2: {
-          id: 1,
-          name: "PLayer 2",
-          description: "Placeholder 2",
-          health: 10,
-          resources: 0,
-        },
-        player3: {
-          id: 2,
-          name: "Player 3",
-          description: "Placeholder 3",
-          health: 10,
-          resources: 0,
-        },
-        skills: [
-          "One",
-          "Two",
-          "Three",
-          "Four",
-          "Five",
-          "Six",
-          "Seven",
-          "Eight",
-          "Nine",
-          "Ten",
-          "Eleven",
-          "Twelve",
-          "Thirteen",
-          "Fourteen",
-          "Fifteen",
-          "Sixteen",
-        ],
-      }
-    });
+    false);
   const [isReady,setIsReady] = useState(false);
-  const getGameState =  async () => {
-    let gameState =  await initializeGame();
-    await setGameState(gameState);
+  // const getGameState =  async () => {
+  //   let gameState =  await initializeGame();
+  //   await setGameState(gameState);
     
-      setIsReady(true);
+  //     setIsReady(true);
     
-  };
+  // };
   
 
   return (
@@ -87,13 +39,13 @@ function App() {
             <RulesPage />
           </Route>
           <Route path="/setup">
-            <NewGameSetup getState={getGameState}/>
+            <NewGameSetup />
           </Route>
           <Route path="/player" exact={true}>
             <PlayerCardBank />
           </Route>
           <Route path="/play" exact={true}>
-            <CardLayout content={<GameplayPage ready={isReady} players={gameState.players} skills={gameState.players.skills} world={gameState.world} initialize={getGameState}/>} />
+            <CardLayout content={<GameplayPage />} />
           </Route>
           <Route path="/testServer" exact={true}>
             <CardLayout content={<ServerTest />} />

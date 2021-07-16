@@ -8,16 +8,27 @@ class SkillTableV2 extends React.Component {
     this.state = {
       currentSkill: "",
       buttonClicked: false,
-      ready:false
+      ready: false,
+      skills:this.props.skills,
+      mappedSkills: [
+      ],
     };
   }
   componentDidMount = () => {
-    if (this.state.mappedSkills) {
-      return;
-    } else {
-      this.mapSkillArr();
-    }
+    
+    this.mapSkillArr();
   };
+ checkSkills = () => {
+   
+   if(this.state.skills[0]!=="One")
+   {
+     return (this.state.mappedSkills)
+   }
+   else
+   {
+     console.log("NO")
+   }
+ }
   rollSkill = (e) => {
     let modifier = Number(e.target.id);
     let dice1 = Math.floor(Math.random() * 6) + 1;
@@ -95,19 +106,13 @@ class SkillTableV2 extends React.Component {
       return newState;
     });
   };
-  mapSkillArr = () => {
-    let arr = [...this.props.skills];
+  mapSkillArr =  () => {
+    let arr = [...this.state.skills];
     let newArr = [];
-    arr.map((skill) => {
+     arr.map((skill) => {
       return newArr.push(this.mapSkill(skill));
-    });
-    this.setState((prevState) => {
-      let newState = { ...prevState };
-      newState.mappedSkills = newArr;
-      newState.ready = true;
-
-      return newState;
-    });
+    })
+    this.setSkills(newArr);
   };
   mapSkill = (name) => {
     return (
@@ -118,6 +123,19 @@ class SkillTableV2 extends React.Component {
       />
     );
   };
+  setSkills = (newArr) => {
+    
+    this.setState((prevState) => {
+      let newState = { ...prevState };
+      newState.mappedSkills = newArr;
+      newState.ready = true;
+
+      return newState;
+    },this.sendSignal);
+  }
+  sendSignal=()=>{
+    return this.props.readyUp;
+  }
 
   render() {
     return (
@@ -125,7 +143,7 @@ class SkillTableV2 extends React.Component {
         <Toaster />
         <Container style={{ fontFamily: "EarthMomma" }}>
           <Row>
-            <Col>{this.state.ready? this.state.mappedSkills:<h1>LOADING</h1>}</Col>
+            <Col>{ this.checkSkills()}</Col>          
             <Col>
               <Row>
                 <h3
