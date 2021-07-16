@@ -1,24 +1,18 @@
 import React from "react";
 import SkillV2 from "./SkillV2";
-import {
-  Container,
-  Col,
-  Row,
-  ButtonGroup,
-  Button
-} from "react-bootstrap";
-import toast, {Toaster} from "react-hot-toast";
+import { Container, Col, Row, ButtonGroup, Button } from "react-bootstrap";
+import toast, { Toaster } from "react-hot-toast";
 class SkillTableV2 extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       currentSkill: "",
       buttonClicked: false,
-      mappedSkills: [],
+      ready:false
     };
   }
   componentDidMount = () => {
-    if (this.state.mappedSkills.length > 0) {
+    if (this.state.mappedSkills) {
       return;
     } else {
       this.mapSkillArr();
@@ -92,9 +86,10 @@ class SkillTableV2 extends React.Component {
     }
     return response;
   };
+  //blah
   setSkillName = (e) => {
     this.setState((prevState) => {
-      let newState = {...prevState};
+      let newState = { ...prevState };
       newState.currentSkill = e.target.innerHTML;
       newState.buttonClicked = true;
       return newState;
@@ -107,8 +102,10 @@ class SkillTableV2 extends React.Component {
       return newArr.push(this.mapSkill(skill));
     });
     this.setState((prevState) => {
-      let newState = {...prevState};
+      let newState = { ...prevState };
       newState.mappedSkills = newArr;
+      newState.ready = true;
+
       return newState;
     });
   };
@@ -126,43 +123,44 @@ class SkillTableV2 extends React.Component {
     return (
       <React.Fragment>
         <Toaster />
-        <Container style={{fontFamily: "EarthMomma"}}>
+        <Container style={{ fontFamily: "EarthMomma" }}>
           <Row>
-            <Col>
-              {this.state.mappedSkills.length > 0 ? (
-                this.state.mappedSkills
-              ) : (
-                <p>Skills are loading</p>
-              )}
-            </Col>
+            <Col>{this.state.ready? this.state.mappedSkills:<h1>LOADING</h1>}</Col>
             <Col>
               <Row>
                 <h3
-                  
-                  style={{color: "back",fontFamily:'EarthMomma',fontSize:'1.5eem'}}
+                  style={{
+                    color: "back",
+                    fontFamily: "EarthMomma",
+                    fontSize: "1.5eem",
+                  }}
                 >{`SKILL:`}</h3>
               </Row>
-              <Row><h2>{this.state.currentSkill == '' ? "NO SKILL SELECTED":this.state.currentSkill}</h2></Row>
-              <Row style={{marginTop:'5%'}}>
+              <Row>
+                <h2>
+                  {this.state.currentSkill == ""
+                    ? "NO SKILL SELECTED"
+                    : this.state.currentSkill}
+                </h2>
+              </Row>
+              <Row style={{ marginTop: "5%" }}>
                 <ButtonGroup
                   onClick={this.rollSkill}
-                  style={{border:'3px solid black',padding:'1%'}}
-                  
-                  
+                  style={{ border: "3px solid black", padding: "1%" }}
                 >
-                  <Button variant="dark" size='lg' id="-2" >
+                  <Button variant="dark" size="lg" id="-2">
                     -2
                   </Button>
-                  <Button variant="dark" size='lg' id="-1" >
+                  <Button variant="dark" size="lg" id="-1">
                     -1
                   </Button>
-                  <Button variant="light" size='lg' id="0" >
+                  <Button variant="light" size="lg" id="0">
                     0
                   </Button>
-                  <Button variant="dark" size='lg' id="1" >
+                  <Button variant="dark" size="lg" id="1">
                     +1
                   </Button>
-                  <Button variant="dark" size='lg' id="2" >
+                  <Button variant="dark" size="lg" id="2">
                     +2
                   </Button>
                 </ButtonGroup>
@@ -172,7 +170,7 @@ class SkillTableV2 extends React.Component {
         </Container>
         <p></p>
 
-        <Row style={{marginBottom: "15px"}}></Row>
+        <Row style={{ marginBottom: "15px" }}></Row>
       </React.Fragment>
     );
   }

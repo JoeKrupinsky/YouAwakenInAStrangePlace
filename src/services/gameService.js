@@ -106,7 +106,7 @@ const onGetSkillsError = (err) => {
   return { message: err };
 };
 
-const endGame = async () => {
+const endGame =  () => {
    endService.endGame();
 };
 
