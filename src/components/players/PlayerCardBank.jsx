@@ -9,13 +9,13 @@ class PlayerCardBank extends React.Component {
         <Container>
           <Row >
             <Col className="col-3">
-              <PlayerCard player={this.props.players.player1} />
+              <PlayerCard  player={{name:"TEST",description:"NONE",health:3,resources:2,skills:['run','jump','fly','kick']}} />
             </Col>
             <Col className="col-3">
-              <PlayerCard player={this.props.players.player2} />
+              <PlayerCard  player={{name:"TEST",description:"NONE",health:5,resources:3,skills:['cry','flee','die','whatever']}}/>
             </Col>
             <Col className="col-3">
-              <PlayerCard player={this.props.players.player3} />
+              <PlayerCard player={{name:"TEST",description:"NONE",health:10,resources:4,skills:['yee','yooo','yiss','yass']}} />
             </Col>
           </Row>{" "}
         </Container>

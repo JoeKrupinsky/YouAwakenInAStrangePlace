@@ -5,7 +5,7 @@ function PlayerCard(props) {
   let formatRes = () => {
     let numString = "";
 
-    switch (props.player.res) {
+    switch (props.player.resources) {
       case 1:
         numString += "X|X|X|X|O";
         break;
@@ -72,7 +72,7 @@ function PlayerCard(props) {
             </Col>
             <Col></Col>
             <Col>
-              <h5>{props.player.hp} </h5>
+              <h5>{props.player.health} </h5>
               {/* TRACK PLAYER"S HEALTH HERE */}
             </Col>
           </Row>
@@ -90,14 +90,14 @@ function PlayerCard(props) {
             <Col>
               <Row style={{borderBottom: "1px dashed grey"}}>
                 <Col>
-                  <h5 style={{float: "left"}}>
+                  <h5 style={{float: "left",fontSize:'.5em'}}>
                     {props.player.skills[0].toUpperCase()}
                   </h5>
                 </Col>
               </Row>
               <Row style={{borderBottom: "1px dashed grey"}}>
                 <Col>
-                  <h5 style={{float: "left"}}>
+                  <h5 style={{float: "left",fontSize:'.5em'}}>
                     {props.player.skills[1].toUpperCase()}
                   </h5>
                 </Col>
@@ -105,7 +105,7 @@ function PlayerCard(props) {
               </Row>
               <Row style={{borderBottom: "1px dashed grey"}}>
                 <Col>
-                  <h5 style={{float: "left"}}>
+                  <h5 style={{float: "left",fontSize:'.5em'}}>
                     {props.player.skills[2].toUpperCase()}
                   </h5>
                 </Col>
@@ -113,7 +113,7 @@ function PlayerCard(props) {
               </Row>
               <Row>
                 <Col>
-                  <h5 style={{float: "left"}}>
+                  <h5 style={{float: "left",fontSize:'.5em'}}>
                     {props.player.skills[3].toUpperCase()}
                   </h5>
                 </Col>
