@@ -8,7 +8,7 @@ class SkillSelection extends React.Component {
     const passSkillInfo = (skillObj) => {
       return this.props.submit(skillObj);
     };
-
+    //WANT TO CHANGE THIS TO HAVE JUST ONE SUBMIT BUTTON
     return (
       <React.Fragment>
         <Row>

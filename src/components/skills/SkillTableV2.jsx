@@ -1,34 +1,28 @@
 import React from "react";
 import SkillV2 from "./SkillV2";
-import { Container, Col, Row, ButtonGroup, Button } from "react-bootstrap";
-import toast, { Toaster } from "react-hot-toast";
+import {Container, Col, Row, ButtonGroup, Button} from "react-bootstrap";
+import toast, {Toaster} from "react-hot-toast";
+import SkillDice from "../dice/SkillDice";
 class SkillTableV2 extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       currentSkill: "",
       buttonClicked: false,
-      ready: false,
-      skills:this.props.skills,
-      mappedSkills: [
-      ],
+      skills: this.props.skills,
+      mappedSkills: [],
     };
   }
   componentDidMount = () => {
-    
     this.mapSkillArr();
   };
- checkSkills = () => {
-   
-   if(this.state.skills[0]!=="One")
-   {
-     return (this.state.mappedSkills)
-   }
-   else
-   {
-     console.log("NO")
-   }
- }
+  checkSkills = () => {
+    if (this.state.skills[0] !== "One") {
+      return this.state.mappedSkills;
+    } else {
+      console.log("NO");
+    }
+  };
   rollSkill = (e) => {
     let modifier = Number(e.target.id);
     let dice1 = Math.floor(Math.random() * 6) + 1;
@@ -55,6 +49,7 @@ class SkillTableV2 extends React.Component {
             color: "white",
             minWidth: "100%",
             minHeight: "100px",
+            fontFamily: "Georgia",
           },
         }
       );
@@ -72,6 +67,7 @@ class SkillTableV2 extends React.Component {
             color: "white",
             minWidth: "100%",
             minHeight: "100px",
+            fontFamily: "Georgia",
           },
         }
       );
@@ -89,6 +85,7 @@ class SkillTableV2 extends React.Component {
             color: "white",
             minWidth: "100%",
             minHeight: "100px",
+            fontFamily: "Georgia",
           },
         }
       );
@@ -97,22 +94,23 @@ class SkillTableV2 extends React.Component {
     }
     return response;
   };
-  //blah
   setSkillName = (e) => {
     this.setState((prevState) => {
-      let newState = { ...prevState };
+      let newState = {...prevState};
       newState.currentSkill = e.target.innerHTML;
       newState.buttonClicked = true;
       return newState;
     });
   };
-  mapSkillArr =  () => {
+  mapSkillArr = () => {
     let arr = [...this.state.skills];
     let newArr = [];
-     arr.map((skill) => {
-      return newArr.push(this.mapSkill(skill));
-    })
-    this.setSkills(newArr);
+    while (newArr.length < 16) {
+      arr.map((skill) => {
+        return newArr.push(this.mapSkill(skill));
+      });
+      this.setSkills(newArr);
+    }
   };
   mapSkill = (name) => {
     return (
@@ -124,71 +122,31 @@ class SkillTableV2 extends React.Component {
     );
   };
   setSkills = (newArr) => {
-    
     this.setState((prevState) => {
-      let newState = { ...prevState };
+      let newState = {...prevState};
       newState.mappedSkills = newArr;
       newState.ready = true;
 
       return newState;
-    },this.sendSignal);
-  }
-  sendSignal=()=>{
+    }, this.sendSignal);
+  };
+  sendSignal = () => {
     return this.props.readyUp;
-  }
+  };
 
   render() {
     return (
       <React.Fragment>
         <Toaster />
-        <Container style={{ fontFamily: "EarthMomma" }}>
-          <Row>
-            <Col>{ this.checkSkills()}</Col>          
-            <Col>
-              <Row>
-                <h3
-                  style={{
-                    color: "back",
-                    fontFamily: "EarthMomma",
-                    fontSize: "1.5eem",
-                  }}
-                >{`SKILL:`}</h3>
-              </Row>
-              <Row>
-                <h2>
-                  {this.state.currentSkill == ""
-                    ? "NO SKILL SELECTED"
-                    : this.state.currentSkill}
-                </h2>
-              </Row>
-              <Row style={{ marginTop: "5%" }}>
-                <ButtonGroup
-                  onClick={this.rollSkill}
-                  style={{ border: "3px solid black", padding: "1%" }}
-                >
-                  <Button variant="dark" size="lg" id="-2">
-                    -2
-                  </Button>
-                  <Button variant="dark" size="lg" id="-1">
-                    -1
-                  </Button>
-                  <Button variant="light" size="lg" id="0">
-                    0
-                  </Button>
-                  <Button variant="dark" size="lg" id="1">
-                    +1
-                  </Button>
-                  <Button variant="dark" size="lg" id="2">
-                    +2
-                  </Button>
-                </ButtonGroup>
-              </Row>
-            </Col>
-          </Row>
+        <Container style={{fontFamily: "Georgia",maxWidth:'80%'}}>
+          {this.checkSkills()}
         </Container>
+        <Row style={{marginTop:'20px'}}>
+          <SkillDice currentSkill={this.state.currentSkill} />
+        </Row>
         <p></p>
 
-        <Row style={{ marginBottom: "15px" }}></Row>
+        <Row style={{marginBottom: "15px"}}></Row>
       </React.Fragment>
     );
   }

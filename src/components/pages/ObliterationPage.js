@@ -11,7 +11,7 @@ function ObliterationPage(props) {
         <React.Fragment>
             <Row>
                 <Col>
-                    <Button size='lg' variant='primary' onClick={e => {e.preventDefault();window.location.replace('/play')}} >Are you sure? You could just go back...</Button>
+                    <Button size='lg' variant='primary' onClick={e => {e.preventDefault();window.location.replace('/loading')}} >Are you sure? You could just go back...</Button>
         </Col>
             <Col>
                 <Button size='lg' variant='danger' onClick={finish}>If you REALLY want to destroy this world...</Button>

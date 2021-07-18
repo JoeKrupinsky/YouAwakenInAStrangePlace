@@ -7,6 +7,7 @@ import RulesPage from "./components/pages/RulesPage";
 import { Route, Switch } from "react-router-dom";
 import GameplayPage from "./components/pages/GameplayPage";
 import LoadingPage from './components/pages/LoadingPage'
+import SkillDice from './components/dice/SkillDice'
 
 import ObliterationPage from "./components/pages/ObliterationPage";
 
@@ -14,6 +15,10 @@ function App() {
   const [gameInfo,setGameInfo]=useState({});
   const infoLoaded=(data)=>{
     setGameInfo(data);
+    // if(gameInfo.players.skills.length > 16)
+    // {
+    //   setGameInfo(gameInfo.players.skills.slice(0,16))
+    // }
   }
   return (
     <div className="App">
@@ -40,6 +45,9 @@ function App() {
 
           <Route path="/lastChance" exact={true}>
             <CardLayout content={<ObliterationPage />} />
+          </Route>
+          <Route path="/diceTest" exact={true}>
+            <CardLayout content={<SkillDice currentSkill="RUNNING"/>} />
           </Route>
         </Switch>
       </header>
