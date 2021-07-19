@@ -3,35 +3,30 @@ import { Container, Row, Col } from "react-bootstrap";
 import PlayerCard from "./PlayerCard";
 
 class PlayerCardBank extends React.Component {
-  
   render(props) {
-    
     return (
-      
       <React.Fragment>
         {this.props.players.player1.name == "Player One" ? (
           <h1>LOADING</h1>
         ) : (
           <Container>
             <Row>
-              <Col className="col-3">
-                <PlayerCard
-                  player={this.props.players.player1}
-                  skills={this.props.skills.slice(0, 4)}
-                />
-              </Col>
-              <Col className="col-3">
-                <PlayerCard
-                  player={this.props.players.player2}
-                  skills={this.props.skills.slice(4, 8)}
-                />
-              </Col>
-              <Col className="col-3">
-                <PlayerCard
-                  player={this.props.players.player3}
-                  skills={this.props.skills.slice(8, 12)}
-                />
-              </Col>
+              <PlayerCard
+                player={this.props.players.player1}
+                skills={this.props.skills.slice(0, 4)}
+              />
+            </Row>
+            <Row>
+              <PlayerCard
+                player={this.props.players.player2}
+                skills={this.props.skills.slice(4, 8)}
+              />
+            </Row>
+            <Row>
+              <PlayerCard
+                player={this.props.players.player3}
+                skills={this.props.skills.slice(8, 12)}
+              />
             </Row>{" "}
           </Container>
         )}
