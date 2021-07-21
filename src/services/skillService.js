@@ -68,7 +68,4 @@ let reset = () => {
 };
 
 
-export { add,addMulti, get, getAll, remove, reset }; // export all your calls here
-
-// if you had three functions to export
-// export { logIn, register, thirdFunction }
+export { add,addMulti, get, getAll, remove, reset }; 

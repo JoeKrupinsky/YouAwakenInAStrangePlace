@@ -74,42 +74,26 @@ function PlayerCard(props) {
         <Card.Header>
           <Row>
             <Col>
-              <p style={{ fontSize: "1em",fontFamily:'Pixelmania' }}>
+              <p style={{ fontSize: ".75em", fontFamily: "Pixelmania" }}>
                 {props.player.name.toUpperCase() || "NO NAME"}
               </p>
             </Col>
             <Col>
-              <Row>
-                <p style={{ fontSize: ".5em" }}>HP: {props.player.health} </p>
-              </Row>
-              <Row>
-                <p style={{ fontSize: ".5em" }}>
-                  RES: {props.player.resources}{" "}
-                </p>
-              </Row>
+              <p style={{ fontSize: ".5em",fontFamily: "Pixelmania", color:'green' }}>HP: {props.player.health} </p>
+            </Col>
+            <Col>
+              <p style={{ fontSize: ".5em",fontFamily: "Pixelmania",color:'red' }}>RES: {props.player.resources} </p>
             </Col>
           </Row>
-          <Row>
+          {/* <Row>
             <Col>
               <h5 style={{ fontSize: ".5em", fontFamily: "arial" }}>
                 {props.player.description}
               </h5>
             </Col>
-          </Row>
+          </Row> */}
         </Card.Header>
         <Card.Body>
-          <Row style={{ borderBottom: "2px solid black" }}>
-            <Col>
-              <p style={{ fontSize: ".4em" }}>HP</p>
-            </Col>
-
-            <Col>
-              <p style={{ fontSize: ".5em" }}>{props.player.health} </p>
-            </Col>
-
-            {/* TRACK PLAYER"S HEALTH HERE */}
-          </Row>
-
           <Row style={{ marginTop: "5px" }}>
             {/* Skills */}
             <Col>
@@ -142,7 +126,7 @@ function PlayerCard(props) {
                 <Col>
                   <h5>
                     {props.skills[3]
-                      ? `${props.skills[0].toUpperCase()} - 2`
+                      ? `${props.skills[3].toUpperCase()} - 2`
                       : ""}
                   </h5>
                 </Col>

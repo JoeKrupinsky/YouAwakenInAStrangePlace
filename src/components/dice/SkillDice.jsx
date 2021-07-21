@@ -10,13 +10,27 @@ class SkillDice extends React.Component {
     this.state = {
       result: 0,
       modifier: 0,
+      resultColor:'black'
     };
   }
   rollDoneCallback = (dice) => {
     console.log(dice);
     this.setState((prevState) => {
       let newState = {...prevState};
-      newState.result = Number(dice) + Number(this.state.modifier);
+      let newNum = Number(dice) + Number(this.state.modifier);
+      let newColor;
+      if(newNum <= 6)
+      {
+        newColor = 'red';
+      }
+      else if(newNum>6 && newNum <=9){
+        newColor = 'blue';
+      }
+      else {
+        newColor= 'green';
+      }
+      newState.result = newNum;
+      newState.resultColor = newColor;
       return newState;
     });
   };
@@ -24,6 +38,9 @@ class SkillDice extends React.Component {
     
     this.setState({modifier: val});
   };
+  getResultColor=()=>{
+    
+  }
   render(props) {
     return (
       <React.Fragment>
@@ -56,7 +73,7 @@ class SkillDice extends React.Component {
           </Row>
           <Row>--------------------------------------------</Row>
           <Row>
-              <Col><h3 >Rolling {this.props.currentSkill} {this.state.modifier >= 0 ? "+":"" } {this.state.modifier} </h3></Col>
+              <Col><h3 >CHECK: {this.props.currentSkill} {this.state.modifier >= 0 ? "+":"" } {this.state.modifier} </h3></Col>
             <Col>
               <div>
                 <ReactDice
@@ -73,7 +90,7 @@ class SkillDice extends React.Component {
               </div>
             </Col>
             <Col>             
-                {this.state.result == 0 ? <h2>Result:</h2> : <h2 >Result: {this.state.result}</h2>}
+                {this.state.result == 0 ? <h2>Result:</h2> : <h2 style={{color:this.state.resultColor}}>Result: {this.state.result}</h2>}
             </Col>
           </Row>
         </Container>

@@ -39,7 +39,6 @@ function NewGameSetup(props) {
   const submitWorld = (world) => {
     setWOpen(!wOpen);
     setPOpen(!pOpen);
-    // return props.setInfo("world",world);
     let worldReq = {
       genre: world.genre,
       adjective: world.adjective,

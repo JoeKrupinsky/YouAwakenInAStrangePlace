@@ -28,6 +28,29 @@ class PlayerCardBank extends React.Component {
                 skills={this.props.skills.slice(8, 12)}
               />
             </Row>{" "}
+            <Row>
+              
+              <Col>
+                <h2 style={{fontFamily:'EarthMomma'}}>Common Skills</h2>
+              </Col>
+              <Col></Col>
+            </Row>
+            <Row style={{fontFamily:'PixelMania'}}>
+              
+              <Col>
+                <h4>{this.props.skills[12].toUpperCase()}</h4>
+              </Col>
+              <Col>
+                <h4>{this.props.skills[13].toUpperCase()}</h4>
+              </Col>
+              <Col>
+                <h4>{this.props.skills[14].toUpperCase()}</h4>
+              </Col>
+              <Col>
+                <h4>{this.props.skills[15].toUpperCase()}</h4>
+              </Col>
+              <Col></Col>
+            </Row>
           </Container>
         )}
       </React.Fragment>

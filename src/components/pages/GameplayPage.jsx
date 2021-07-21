@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useEffect,useState} from "react";
 import {Tabs, Tab, Button} from "react-bootstrap";
 import SkillTableV2 from "../skills/SkillTableV2";
 import PlayerCardBank from "../players/PlayerCardBank";
@@ -6,6 +6,12 @@ import {WorldCard} from "../world/WorldCard";
 import {initializeGame} from "../../services/gameService";
 
 const GameplayPage = (props) => {
+  const [ready,setReady] = useState(props.ready);
+   useEffect(()=>{
+     if(!ready)
+       window.location.replace('/loading');
+     
+   })
   return (
     <React.Fragment>
       <Tabs
@@ -20,14 +26,6 @@ const GameplayPage = (props) => {
               players={props.info.players}
               skills={props.info.players.skills}
             />
-
-            <h3 >OTHER SKILLS:</h3>
-            <h4 style={{fontFamily: "Pixelmania"}}>
-              {props.info.players.skills[12].toUpperCase()}|        |
-              {props.info.players.skills[13].toUpperCase()}|        |
-              {props.info.players.skills[14].toUpperCase()}|        |
-              {props.info.players.skills[15].toUpperCase()}
-            </h4>
           </div>
         </Tab>
         <Tab eventKey="skills" title="SKILLS">

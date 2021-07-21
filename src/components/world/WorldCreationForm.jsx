@@ -12,10 +12,6 @@ const WorldCreationForm = (props) => (
         statements:[]
       }}
       onSubmit={(values, actions) => {
-        // setTimeout(() => {
-        //   alert(JSON.stringify(values, null, 2));
-        //   actions.setSubmitting(false);
-        // }, 1000);
         return props.submit(values);
       }}
     >

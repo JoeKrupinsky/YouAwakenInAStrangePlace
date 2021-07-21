@@ -9,16 +9,15 @@ import GameplayPage from "./components/pages/GameplayPage";
 import LoadingPage from './components/pages/LoadingPage'
 import SkillDice from './components/dice/SkillDice'
 
-import ObliterationPage from "./components/pages/ObliterationPage";
+import ObliterationPage from "./components/pages/ObliterationPage.jsx";
 
 function App() {
   const [gameInfo,setGameInfo]=useState({});
+  const [readyState,setReadyState]=useState(false);
   const infoLoaded=(data)=>{
     setGameInfo(data);
-    // if(gameInfo.players.skills.length > 16)
-    // {
-    //   setGameInfo(gameInfo.players.skills.slice(0,16))
-    // }
+    setReadyState(true);
+   
   }
   return (
     <div className="App">
@@ -40,14 +39,11 @@ function App() {
             <CardLayout content={<LoadingPage submit={infoLoaded}/>} />
           </Route>
           <Route path="/play" exact={true}>
-            <CardLayout content={<GameplayPage info={gameInfo}/>} />
+            <CardLayout content={<GameplayPage info={gameInfo} ready={readyState} />} />
           </Route>
 
           <Route path="/lastChance" exact={true}>
             <CardLayout content={<ObliterationPage />} />
-          </Route>
-          <Route path="/diceTest" exact={true}>
-            <CardLayout content={<SkillDice currentSkill="RUNNING"/>} />
           </Route>
         </Switch>
       </header>

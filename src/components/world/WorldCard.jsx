@@ -2,7 +2,7 @@ import React from 'react'
 import {Col,Row,Card} from 'react-bootstrap'
 export const WorldCard = (props) =>{
     return <React.Fragment>
-        <Card style={{fontFamily:'Georgia'}}>
+        <Card style={{fontFamily:'EarthMomma'}}>
             <Card.Header>
                 <h1>The {props.world.adjective} {props.world.location}: A {props.world.genre} adventure.</h1>
             </Card.Header>

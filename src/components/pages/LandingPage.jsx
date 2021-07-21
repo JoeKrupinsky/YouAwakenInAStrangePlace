@@ -2,9 +2,6 @@ import React from "react";
 import {Button, Container, Row, Card, Col} from "react-bootstrap";
 
 function LandingPage(props) {
-  // const startGame=()=>{
-  //     console.log(props)
-  // }
   return (
     <React.Fragment>
       <Container>
