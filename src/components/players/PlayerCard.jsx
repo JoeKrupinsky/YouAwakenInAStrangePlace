@@ -1,47 +1,54 @@
-import React from "react";
-import { Row, Col, Card, Button } from "react-bootstrap";
+import React, { useState } from "react";
+import { Row, Col, Card, ButtonGroup, Button } from "react-bootstrap";
 
 function PlayerCard(props) {
-  let formatRes = () => {
-    let numString = "";
+  const [health, setHealth] = useState(props.player.health);
+  const [resources, setResources] = useState(props.player.resources);
+  // let formatRes = () => {
+  //   let numString = "";
 
-    switch (props.player.resources) {
-      case 1:
-        numString += "X|X|X|X|O";
-        break;
-      case 2:
-        numString += "X|X|X|O|O";
-        break;
-      case 3:
-        numString += "X|X|O|O|O";
-        break;
-      case 4:
-        numString += "X|O|O|O|O";
-        break;
-      case 5:
-        numString += "O|O|O|O|O";
-        break;
-      default:
-        numString += "X|X|X|X|X";
-        break;
-    }
-    return numString;
-  };
+  //   switch (resources) {
+  //     case 1:
+  //       numString += "X|X|X|X|O";
+  //       break;
+  //     case 2:
+  //       numString += "X|X|X|O|O";
+  //       break;
+  //     case 3:
+  //       numString += "X|X|O|O|O";
+  //       break;
+  //     case 4:
+  //       numString += "X|O|O|O|O";
+  //       break;
+  //     case 5:
+  //       numString += "O|O|O|O|O";
+  //       break;
+  //     default:
+  //       numString += "X|X|X|X|X";
+  //       break;
+  //   }
+  //   return numString;
+  // };
   const resourceHandler = (e) => {
     let [pId, bId] = e.target.id.split("-");
-
+    let newRes;
+    let newHealth;
     switch (bId) {
       case "rPlus":
-        console.log("Add Resource");
+        newRes = resources + 1;
+        setResources(newRes);
         break;
       case "rMinus":
-        console.log("Subtract Resource");
+        newRes = resources - 1;
+        setResources(newRes);
         break;
       case "hPlus":
-        console.log("Add Health");
+        newHealth = health + 1;
+        setHealth(newHealth);
         break;
       case "hMinus":
-        console.log("Subtract Health");
+        newHealth = health - 1;
+        setHealth(newHealth);
         break;
       default:
         console.log("Invalid Button id passed");
@@ -74,24 +81,70 @@ function PlayerCard(props) {
         <Card.Header>
           <Row>
             <Col>
-              <p style={{ fontSize: ".75em", fontFamily: "Pixelmania" }}>
+              <p title={props.player.description} style={{ fontSize: ".75em", fontFamily: "Pixelmania" }}>
                 {props.player.name.toUpperCase() || "NO NAME"}
               </p>
             </Col>
             <Col>
-              <p style={{ fontSize: ".5em",fontFamily: "Pixelmania", color:'green' }}>HP: {props.player.health} </p>
+              <p
+                style={{
+                  fontSize: ".75em",
+                  fontFamily: "Pixelmania",
+                  color: "black",
+                }}
+              >
+                HP: {health}{" "}
+              </p>
+            </Col>
+
+            <Col>
+              <ButtonGroup onClick={resourceHandler}>
+                <Button
+                  size="lg"
+                  variant="outline-success"
+                  id={`${props.player.id}-hPlus`}
+                >
+                  +
+                </Button>
+                <Button
+                  size="lg"
+                  variant="outline-danger"
+                  id={`${props.player.id}-hMinus`}
+                >
+                  -
+                </Button>
+              </ButtonGroup>
             </Col>
             <Col>
-              <p style={{ fontSize: ".5em",fontFamily: "Pixelmania",color:'red' }}>RES: {props.player.resources} </p>
+              <p
+                style={{
+                  fontSize: ".75em",
+                  fontFamily: "Pixelmania",
+                  color: "black",
+                }}
+              >
+                RES: {resources}
+              </p>
+              
             </Col>
+            <Col><ButtonGroup onClick={resourceHandler}>
+                <Button
+                  size="lg"
+                  variant="outline-success"
+                  id={`${props.player.id}-rPlus`}
+                >
+                  +
+                </Button>
+                <Button
+                  size="lg"
+                  variant="outline-danger"
+                  id={`${props.player.id}-rMinus`}
+                >
+                  -
+                </Button>
+              </ButtonGroup></Col>
           </Row>
-          {/* <Row>
-            <Col>
-              <h5 style={{ fontSize: ".5em", fontFamily: "arial" }}>
-                {props.player.description}
-              </h5>
-            </Col>
-          </Row> */}
+          
         </Card.Header>
         <Card.Body>
           <Row style={{ marginTop: "5px" }}>
@@ -99,36 +152,36 @@ function PlayerCard(props) {
             <Col>
               <Row style={{ borderBottom: "1px dashed grey" }}>
                 <Col>
-                  <h5>
+                  <h4>
                     {props.skills[0]
                       ? `${props.skills[0].toUpperCase()} + 2`
                       : ""}
-                  </h5>
+                  </h4>
                 </Col>
 
                 <Col>
-                  <h5>
+                  <h4>
                     {props.skills[1]
                       ? `${props.skills[1].toUpperCase()} + 1`
                       : ""}
-                  </h5>
+                  </h4>
                 </Col>
               </Row>
               <Row style={{ borderBottom: "1px dashed grey" }}>
                 <Col>
-                  <h5>
+                  <h4>
                     {props.skills[2]
                       ? `${props.skills[2].toUpperCase()} - 1`
                       : ""}
-                  </h5>
+                  </h4>
                 </Col>
 
                 <Col>
-                  <h5>
+                  <h4>
                     {props.skills[3]
                       ? `${props.skills[3].toUpperCase()} - 2`
                       : ""}
-                  </h5>
+                  </h4>
                 </Col>
               </Row>
             </Col>

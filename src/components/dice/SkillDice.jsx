@@ -73,7 +73,7 @@ class SkillDice extends React.Component {
           </Row>
           <Row>--------------------------------------------</Row>
           <Row>
-              <Col><h3 >CHECK: {this.props.currentSkill} {this.state.modifier >= 0 ? "+":"" } {this.state.modifier} </h3></Col>
+              <Col><h4>CHECK: {this.props.currentSkill} {this.state.modifier >= 0 ? "+":"" } {this.state.modifier} </h4></Col>
             <Col>
               <div>
                 <ReactDice
@@ -90,7 +90,7 @@ class SkillDice extends React.Component {
               </div>
             </Col>
             <Col>             
-                {this.state.result == 0 ? <h2>Result:</h2> : <h2 style={{color:this.state.resultColor}}>Result: {this.state.result}</h2>}
+                {this.state.result == 0 ? <h3>Result:</h3> : <h3 style={{color:this.state.resultColor}}>Result: {this.state.result}</h3>}
             </Col>
           </Row>
         </Container>
