@@ -5,11 +5,11 @@ import PlayerCard from "./PlayerCard";
 class PlayerCardBank extends React.Component {
   render(props) {
     return (
-      <React.Fragment>
+      <React.Fragment >
         {this.props.players.player1.name == "Player One" ? (
           <h1>LOADING</h1>
         ) : (
-          <Container>
+          <Container style={{fontFamily:'MagnificentSerif'}}>
             <Row>
               <PlayerCard
                 player={this.props.players.player1}
@@ -31,11 +31,11 @@ class PlayerCardBank extends React.Component {
             <Row>
               
               <Col>
-                <h2 style={{fontFamily:'EarthMomma'}}>Common Skills</h2>
+                <h2 >COMMON SKILLS</h2>
               </Col>
               <Col></Col>
             </Row>
-            <Row style={{fontFamily:'PixelMania'}}>
+            <Row>
               
               <Col>
                 <h4>{this.props.skills[12].toUpperCase()}</h4>

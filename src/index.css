@@ -20,3 +20,11 @@ code {
   font-family: 'EarthMomma';
   src: local('EarthMomma'), url(./fonts/EarthMommaRegular.ttf) format('truetype');
 }
+@font-face {
+  font-family: 'MagnificentSerif';
+  src: local('MagnificentSerif'), url(./fonts/Magnificent\ Serif.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'TypeWriter';
+  src: local('TypeWriter'), url(./fonts/JMH\ Typewriter-Thin.ttf) format('truetype');
+}

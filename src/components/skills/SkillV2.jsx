@@ -21,6 +21,7 @@ class SkillV2 extends React.Component {
             fontSize: ".6em",
             borderRadius:'10px',
             border: "2px solid black",
+            fontFamily:'TypeWriter',
             // margin:'1%',
             padding: "15px 10px"
           }}

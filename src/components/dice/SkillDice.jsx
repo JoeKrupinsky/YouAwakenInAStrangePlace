@@ -44,7 +44,7 @@ class SkillDice extends React.Component {
   render(props) {
     return (
       <React.Fragment>
-        <Container>
+        <Container style={{fontFamily:'TypeWriter'}}>
           <Row></Row>
           <Row>
               <Col></Col>
@@ -73,7 +73,7 @@ class SkillDice extends React.Component {
           </Row>
           <Row>--------------------------------------------</Row>
           <Row>
-              <Col><h4>CHECK: {this.props.currentSkill} {this.state.modifier >= 0 ? "+":"" } {this.state.modifier} </h4></Col>
+              <Col><h3>CHECK: {this.props.currentSkill} {this.state.modifier >= 0 ? "+":"" } {this.state.modifier} </h3></Col>
             <Col>
               <div>
                 <ReactDice

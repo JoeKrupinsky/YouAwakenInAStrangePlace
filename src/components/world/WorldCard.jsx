@@ -25,7 +25,7 @@ export const WorldCard = (props) => {
   };
   return (
     <React.Fragment>
-      <Card style={{ fontFamily: "EarthMomma" }}>
+      <Card style={{ fontFamily: "TypeWriter" }}>
         <Card.Header>
           <h1>
             The {props.world.adjective} {props.world.location}: A{" "}

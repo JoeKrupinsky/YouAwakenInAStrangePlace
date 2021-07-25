@@ -8,7 +8,7 @@ function LandingPage(props) {
         <Card
           bg="light"
           style={{
-            fontFamily: "EarthMomma",
+            fontFamily: "MagnificentSerif",
             color: "black",
             borderRadius: "10px",
             padding: "5%",
@@ -18,18 +18,18 @@ function LandingPage(props) {
             <Row>
               <Col></Col>
               <h1 style={{textShadow: "-4px 5px 11px black"}}>
-                You Awaken In A Strange Place
+               YOU AWAKEN IN A STRANGE PLACE
               </h1>
               <Col></Col>
             </Row>
             <Row>
               <Col></Col>
-              <h5> Fully Improvised RPG for 4 Players</h5>
+              <h5> FULLY IMPORIVSED RPG FOR 3 PLAYERS AND A DM</h5>
               <Col></Col>
             </Row>
             <Row>
               <Col></Col>
-              <h5>Designed by Jacob Andrews</h5>
+              <h5>DESIGNED BY JACOB ANDREWS</h5>
               <Col></Col>
             </Row>
           </Card.Header>
@@ -37,17 +37,17 @@ function LandingPage(props) {
             <Row>
               <Col>
                 <Button variant="primary" href="/setup">
-                  Start A New Adventure
+                  START
                 </Button>
               </Col>
               <Col>
                 <Button variant="success" href="/loading">
-                  Continue an Adventure?
+                  CONTINUE
                 </Button>
               </Col>
               <Col>
                 <Button variant="danger" href="/rules">
-                  The Rules
+                  RULES
                 </Button>
               </Col>
             </Row>

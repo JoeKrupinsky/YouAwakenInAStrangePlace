@@ -73,7 +73,7 @@ function PlayerCard(props) {
         style={{
           borderRadius: "10px",
           border: "3px solid #525252",
-          fontFamily: "EarthMomma",
+          fontFamily: "MagnificentSerif",
           color: "black",
           backgroundColor: "#f0f0f0",
         }}
@@ -81,15 +81,15 @@ function PlayerCard(props) {
         <Card.Header>
           <Row>
             <Col>
-              <p title={props.player.description} style={{ fontSize: ".75em", fontFamily: "Pixelmania" }}>
+              <p title={props.player.description} style={{ fontSize: "1em" }}>
                 {props.player.name.toUpperCase() || "NO NAME"}
               </p>
             </Col>
             <Col>
               <p
                 style={{
-                  fontSize: ".75em",
-                  fontFamily: "Pixelmania",
+                  fontSize: "1em",
+                 
                   color: "black",
                 }}
               >
@@ -97,7 +97,7 @@ function PlayerCard(props) {
               </p>
             </Col>
 
-            <Col>
+            <Col style={{fontFamily:'EarthMomma'}}>
               <ButtonGroup onClick={resourceHandler}>
                 <Button
                   size="lg"
@@ -118,8 +118,8 @@ function PlayerCard(props) {
             <Col>
               <p
                 style={{
-                  fontSize: ".75em",
-                  fontFamily: "Pixelmania",
+                  fontSize: "1em",
+                 
                   color: "black",
                 }}
               >
@@ -127,7 +127,7 @@ function PlayerCard(props) {
               </p>
               
             </Col>
-            <Col><ButtonGroup onClick={resourceHandler}>
+            <Col style={{fontFamily:'EarthMomma'}}><ButtonGroup onClick={resourceHandler}>
                 <Button
                   size="lg"
                   variant="outline-success"

@@ -18,7 +18,7 @@ const GameplayPage = (props) => {
         defaultActiveKey="players"
         transition={false}
         id="gameplay-tabs"
-        style={{color: "black"}}
+        style={{color: "black",fontFamily:'TypeWriter'}}
       >
         <Tab eventKey="players" title="PLAYERS">
           <div style={{marginTop: "5%"}}>
