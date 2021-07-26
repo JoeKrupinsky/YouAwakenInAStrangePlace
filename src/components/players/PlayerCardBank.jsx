@@ -9,7 +9,7 @@ class PlayerCardBank extends React.Component {
         {this.props.players.player1.name == "Player One" ? (
           <h1>LOADING</h1>
         ) : (
-          <Container style={{fontFamily:'MagnificentSerif'}}>
+          <Container style={{fontFamily:'Typewriter'}}>
             <Row>
               <PlayerCard
                 player={this.props.players.player1}

@@ -25,12 +25,12 @@ const PlayerCreationForm = (props) => (
                 }}
               >
                 <Row style={{padding: "5%"}}>
-                  <label>What is your name?</label>
+                  <label>PLAYER ONE IS...</label>
                 </Row>
                 <Row>
                   <FormControl
                     type="text"
-                    style={{color: "black", margin: "5%"}}
+                    style={{color: "black", margin: "5%",fontFamily:'none'}}
                     onChange={props.handleChange}
                     onBlur={props.handleBlur}
                     value={props.values.names[0]}
@@ -43,8 +43,8 @@ const PlayerCreationForm = (props) => (
                 </Row>
                 <Row style={{padding: "5%"}}>
                   <label>
-                    Describe yourself,{" "}
-                    {props.values.names[0].split(" ")[0]}
+                    DESCRIBE YOURSELF,{" "}
+                    {props.values.names[0].split(" ")[0].toUpperCase()||"PLAYER ONE"}
                   </label>
                 </Row>
                 <Row>
@@ -52,7 +52,7 @@ const PlayerCreationForm = (props) => (
                     as="textarea"
                     size="lg"
                     type="text"
-                    style={{color: "black", margin: "5%"}}
+                    style={{color: "black", margin: "5%",fontFamily:'none'}}
                     onChange={props.handleChange}
                     onBlur={props.handleBlur}
                     value={props.values.descriptions[0]}
@@ -65,13 +65,13 @@ const PlayerCreationForm = (props) => (
               </Col>
               <Col style={{border: "2px solid #8A959E", borderRadius: "10px"}}>
                 <Row style={{padding: "5%"}}>
-                  <label>What is your name?</label>
+                  <label>PLAYER TWO IS...</label>
                 </Row>
                 <Row>
                   <FormControl
                     size="lg"
                     type="text"
-                    style={{color: "black", margin: "5%"}}
+                    style={{color: "black", margin: "5%",fontFamily:'none'}}
                     onChange={props.handleChange}
                     onBlur={props.handleBlur}
                     value={props.values.names[1]}
@@ -84,8 +84,8 @@ const PlayerCreationForm = (props) => (
                 </Row>
                 <Row style={{padding: "5%"}}>
                   <label>
-                    Describe yourself,{" "}
-                    {props.values.names[1].split(" ")[0]}
+                    DESCRIBE YOURSELF,{" "}
+                    {props.values.names[1].split(" ")[0].toUpperCase()||'PLAYER TWO'}
                   </label>
                 </Row>
                 <Row>
@@ -93,7 +93,7 @@ const PlayerCreationForm = (props) => (
                     as="textarea"
                     size="lg"
                     type="text"
-                    style={{color: "black", margin: "5%"}}
+                    style={{color: "black", margin: "5%",fontFamily:'none'}}
                     onChange={props.handleChange}
                     onBlur={props.handleBlur}
                     value={props.values.descriptions[1]}
@@ -113,12 +113,12 @@ const PlayerCreationForm = (props) => (
                 }}
               >
                 <Row style={{padding: "5%"}}>
-                  <label>What is your name?</label>
+                  <label>PLAYER THREE IS...</label>
                 </Row>
                 <Row>
                   <FormControl
                     type="text"
-                    style={{color: "black", margin: "5%"}}
+                    style={{color: "black", margin: "5%",fontFamily:'none'}}
                     onChange={props.handleChange}
                     onBlur={props.handleBlur}
                     value={props.values.names[2]}
@@ -131,8 +131,8 @@ const PlayerCreationForm = (props) => (
                 </Row>
                 <Row style={{padding: "5%"}}>
                   <label>
-                    Describe yourself,{" "}
-                    {props.values.names[2].split(" ")[0]}
+                    DESCRIBE YOURSELF,{" "}
+                    {props.values.names[2].split(" ")[0].toUpperCase()||"PLAYER THREE"}
                   </label>
                 </Row>
                 <Row>
@@ -140,7 +140,7 @@ const PlayerCreationForm = (props) => (
                     as="textarea"
                     size="lg"
                     type="text"
-                    style={{color: "black", margin: "5%"}}
+                    style={{color: "black", margin: "5%",fontFamily:'none'}}
                     onChange={props.handleChange}
                     onBlur={props.handleBlur}
                     value={props.values.descriptions[2]}
@@ -156,7 +156,7 @@ const PlayerCreationForm = (props) => (
             <Row style={{marginTop:'3%'}}>
               <Col>
                 <Button variant="success" type="submit">
-                  Lock Players In
+                  NEXT...
                 </Button>
               </Col>
             </Row>

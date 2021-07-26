@@ -1,5 +1,6 @@
-import { React, useState } from "react";
-import { Button, Collapse, Card, Row, Col } from "react-bootstrap";
+import {React, useState} from "react";
+import {Button, Collapse, Card, Row, Col} from "react-bootstrap";
+import {Link} from "react-router-dom";
 import PlayerCreationForm from "../players/PlayerCreationForm";
 import WorldCreationForm from "../world/WorldCreationForm";
 import DiceRoller from "../dice/DiceRoller";
@@ -58,10 +59,10 @@ function NewGameSetup(props) {
     let newWorldId = response.data.res[0];
     let formattedArr = [];
     statements.forEach((x) => {
-      formattedArr.push({ worldId: newWorldId, text: x });
+      formattedArr.push({worldId: newWorldId, text: x});
     });
     stSvc
-      .addMulti({ statements: formattedArr })
+      .addMulti({statements: formattedArr})
       .then((result) => console.log(result))
       .catch((err) => console.log(err));
   };
@@ -81,7 +82,7 @@ function NewGameSetup(props) {
       formattedArr.push(playerObj);
     }
     pSvc
-      .addMulti({ players: formattedArr })
+      .addMulti({players: formattedArr})
       .then((res) => {
         onPlayerAddSuccess(playerData.names);
       })
@@ -100,11 +101,11 @@ function NewGameSetup(props) {
     let skills = skillObj.skills;
     let submitArr = [];
     skills.forEach((skill) => {
-      submitArr.push({ name: skill, playerId: pId });
+      submitArr.push({name: skill, playerId: pId});
     });
     console.log(submitArr);
     skillSvc
-      .addMulti({ skills: submitArr })
+      .addMulti({skills: submitArr})
       .then((res) => onSkillAddSuccess(res))
       .catch((err) => onSKillAddError(err));
   };
@@ -120,7 +121,7 @@ function NewGameSetup(props) {
       bg="light"
       style={{
         color: "black",
-        fontFamily: "EarthMomma",
+        fontFamily: "MagnificentSerif",
         fontSize: ".75em",
         minWidth: "80%",
         borderRadius: "5%",
@@ -143,7 +144,7 @@ function NewGameSetup(props) {
         </Collapse>
         <h5
           className="col-12"
-          style={{ marginTop: "1%" }}
+          style={{marginTop: "1%"}}
           onClick={() => setPOpen(!pOpen)}
         >
           WHO ARE YOU?
@@ -169,9 +170,13 @@ function NewGameSetup(props) {
         </Collapse>
       </Card.Body>
       <Card.Footer>
-        <Button size="lg" variant="success" onClick={console.log('NOTHING HERE YET')}>
-          START YOUR ADVENTURE!
-        </Button>
+        <Link
+          
+          to="/loading" as={Button}>
+          <Button variant="success" size="lg">
+            YOU AWAKEN IN A STRANGE PLACE...
+          </Button>
+        </Link>
       </Card.Footer>
     </Card>
   );

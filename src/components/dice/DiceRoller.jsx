@@ -12,7 +12,7 @@ class DiceRoller extends React.PureComponent {
       <React.Fragment>
         <Row>
           <Col>
-          <h5>Youngest Player</h5>
+          <h5>YOUNGEST</h5>
             <div>
               <ReactDice
               faceColor='white'
@@ -27,7 +27,7 @@ class DiceRoller extends React.PureComponent {
             </div>
           </Col>
           <Col>
-          <h5>Middle Player</h5>
+          <h5>MIDDLEST </h5>
             <div>
               <ReactDice
               faceColor='white'
@@ -42,7 +42,7 @@ class DiceRoller extends React.PureComponent {
             </div>
           </Col>
           <Col>
-          <h5>Oldest Player</h5>
+          <h5>OLDEST</h5>
             <div>
               <ReactDice
               faceColor='white'

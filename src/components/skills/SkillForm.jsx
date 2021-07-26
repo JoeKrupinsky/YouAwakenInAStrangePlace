@@ -7,19 +7,19 @@ const getDescString = (num) => {
   let result;
   switch (num) {
     case 0:
-      result = "is AMAZING at...";
+      result = "IS GREAT AT...";
       break;
     case 1:
-      result = "is GOOD at...";
+      result = "IS GOOD AT...";
       break;
     case 2:
-      result = "is BAD at...";
+      result = "IS BAD AT...";
       break;
     case 3:
-      result = "is HORRIBLE at...";
+      result = "IS HORRIBLE AT...";
       break;
     default:
-      result = "Something broke here";
+      result = "SOMETHING BROKE...";
       break;
   }
   return result;
@@ -35,7 +35,7 @@ export const SkillForm = (props) => (
       }}
       render={({values}) => (
         <Form style={{padding:'5%',border:'2px solid #8A959E',borderRadius:'5px'}}>
-          <label>{props.name}</label>
+          <label>{props.name.toUpperCase()}</label>
           <FieldArray
             name="values.skills"          
             render={(arrayHelpers) => (
@@ -47,7 +47,7 @@ export const SkillForm = (props) => (
                         as={FormControl}
                         placeholder={getDescString(index)}
                         name={`skills[${index}]`}
-                        style={{margin: "1%"}}
+                        style={{margin: "1%",fontFamily:'none'}}
                       />
                     </div>
                   ))
@@ -56,7 +56,7 @@ export const SkillForm = (props) => (
                 )}
                 <div>
                   <Button type="submit" size="sm" variant="dark">
-                    Submit {props.name}
+                    SUBMIT {props.name.toUpperCase()}
                   </Button>
                 </div>
               </div>

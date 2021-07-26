@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { Row, Col, Card, ButtonGroup, Button } from "react-bootstrap";
+import React, {useState} from "react";
+import {Row, Col, Card, ButtonGroup, Button} from "react-bootstrap";
 
 function PlayerCard(props) {
   const [health, setHealth] = useState(props.player.health);
@@ -73,7 +73,7 @@ function PlayerCard(props) {
         style={{
           borderRadius: "10px",
           border: "3px solid #525252",
-          fontFamily: "MagnificentSerif",
+          fontFamily: "Typewriter",
           color: "black",
           backgroundColor: "#f0f0f0",
         }}
@@ -81,76 +81,84 @@ function PlayerCard(props) {
         <Card.Header>
           <Row>
             <Col>
-              <p title={props.player.description} style={{ fontSize: "1em" }}>
+              <p title={props.player.description} style={{fontSize: ".75em"}}>
                 {props.player.name.toUpperCase() || "NO NAME"}
               </p>
             </Col>
-            <Col>
-              <p
-                style={{
-                  fontSize: "1em",
-                 
-                  color: "black",
-                }}
-              >
-                HP: {health}{" "}
-              </p>
+            <Col  style={{borderLeft:'2px solid gray',paddingLeft:'5%'}}>
+              <Row>
+                <p
+                  style={{
+                    fontSize: ".8em",
+
+                    color: "black",
+                  }}
+                >
+                  Health: {health}{" "}
+                </p>
+              </Row>
+              <Row>
+                <ButtonGroup onClick={resourceHandler}>
+                  <Button
+                    size="lg"
+                    variant="outline-success"
+                    id={`${props.player.id}-hPlus`}
+                  >
+                    HEAL
+                  </Button>
+                  <Button
+                    size="lg"
+                    variant="outline-danger"
+                    id={`${props.player.id}-hMinus`}
+                  >
+                    HURT
+                  </Button>
+                </ButtonGroup>
+              </Row>
             </Col>
 
-            <Col style={{fontFamily:'EarthMomma'}}>
-              <ButtonGroup onClick={resourceHandler}>
-                <Button
-                  size="lg"
-                  variant="outline-success"
-                  id={`${props.player.id}-hPlus`}
+            
+            <Col style={{borderLeft:'2px solid gray',paddingLeft:'5%'}}>
+              <Row>
+                {" "}
+                <p
+                  style={{
+                    fontSize: ".8em",
+
+                    color: "black",
+                  }}
                 >
-                  +
-                </Button>
-                <Button
-                  size="lg"
-                  variant="outline-danger"
-                  id={`${props.player.id}-hMinus`}
-                >
-                  -
-                </Button>
-              </ButtonGroup>
+                  Resources: {resources}
+                </p>
+              </Row>
+              <Row>
+                <ButtonGroup onClick={resourceHandler}>
+                  <Button
+                    size="lg"
+                    variant="outline-success"
+                    id={`${props.player.id}-rPlus`}
+                  >
+                    FIND
+                  </Button>
+                  
+                  <Button
+                    size="lg"
+                    variant="outline-danger"
+                    id={`${props.player.id}-rMinus`}
+                  >
+                    USE
+                  </Button>
+                </ButtonGroup>
+              </Row>
             </Col>
-            <Col>
-              <p
-                style={{
-                  fontSize: "1em",
-                 
-                  color: "black",
-                }}
-              >
-                RES: {resources}
-              </p>
-              
-            </Col>
-            <Col style={{fontFamily:'EarthMomma'}}><ButtonGroup onClick={resourceHandler}>
-                <Button
-                  size="lg"
-                  variant="outline-success"
-                  id={`${props.player.id}-rPlus`}
-                >
-                  +
-                </Button>
-                <Button
-                  size="lg"
-                  variant="outline-danger"
-                  id={`${props.player.id}-rMinus`}
-                >
-                  -
-                </Button>
-              </ButtonGroup></Col>
+           
           </Row>
-          
         </Card.Header>
         <Card.Body>
-          <Row style={{ marginTop: "5px" }}>
+          <Row style={{marginTop: "5px"}}>
             {/* Skills */}
             <Col>
-              <Row style={{ borderBottom: "1px dashed grey" }}>
+              <Row style={{borderBottom: "1px dashed grey"}}>
                 <Col>
                   <h4>
                     {props.skills[0]
@@ -167,19 +175,19 @@ function PlayerCard(props) {
                   </h4>
                 </Col>
               </Row>
-              <Row style={{ borderBottom: "1px dashed grey" }}>
+              <Row style={{borderBottom: "1px dashed grey"}}>
                 <Col>
                   <h4>
-                    {props.skills[2]
-                      ? `${props.skills[2].toUpperCase()} - 1`
+                    {props.skills[3]
+                      ? `${props.skills[3].toUpperCase()} - 2`
                       : ""}
                   </h4>
                 </Col>
 
                 <Col>
                   <h4>
-                    {props.skills[3]
-                      ? `${props.skills[3].toUpperCase()} - 2`
+                    {props.skills[2]
+                      ? `${props.skills[2].toUpperCase()} - 1`
                       : ""}
                   </h4>
                 </Col>

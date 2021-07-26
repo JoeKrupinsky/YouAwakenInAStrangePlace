@@ -27,12 +27,12 @@ const WorldCreationForm = (props) => (
                 }}
               >
                 <Row style={{padding: "5%"}}>
-                  <label>Genre</label>
+                  <label>GENRE</label>
                 </Row>
                 <Row>
                   <FormControl
                     type="text"
-                    style={{color: "black", margin: "5%"}}
+                    style={{color: "black", margin: "5%",fontFamily:'none'}}
                     onChange={props.handleChange}
                     onBlur={props.handleBlur}
                     value={props.values.genre}
@@ -47,13 +47,13 @@ const WorldCreationForm = (props) => (
               </Col>
               <Col style={{border: "2px solid #8A959E", borderRadius: "10px"}}>
                 <Row style={{padding: "5%"}}>
-                  <label>Adjective</label>
+                  <label>ADJECTIVE</label>
                 </Row>
                 <Row>
                   <FormControl
                     size="lg"
                     type="text"
-                    style={{color: "black", margin: "5%"}}
+                    style={{color: "black", margin: "5%",fontFamily:'none'}}
                     onChange={props.handleChange}
                     onBlur={props.handleBlur}
                     value={props.values.adjective}
@@ -74,12 +74,12 @@ const WorldCreationForm = (props) => (
                 }}
               >
                 <Row style={{padding: "5%"}}>
-                  <label>Location</label>
+                  <label>LOCATION</label>
                 </Row>
                 <Row>
                   <FormControl
                     type="text"
-                    style={{color: "black", margin: "5%"}}
+                    style={{color: "black", margin: "5%",fontFamily:'none'}}
                     onChange={props.handleChange}
                     onBlur={props.handleBlur}
                     value={props.values.location}
@@ -94,7 +94,7 @@ const WorldCreationForm = (props) => (
             </Row>
             <Row style={{marginTop:'1%'}}>
                 <Col></Col>
-              <h4>Please make a statement about the world</h4>
+              <h4>PLAYERS, MAKE A STATEMENT ABOUT THIS WORLD</h4>
               <Col></Col>
             </Row>
             <Row>
@@ -106,13 +106,13 @@ const WorldCreationForm = (props) => (
                 }}
               >
                 <Row style={{padding: "5%"}}>
-                  <label>Statement #1</label>
+                  <label>1</label>
                 </Row>
                 <Row>
                   <FormControl
                   as='textarea'
                     type="text"
-                    style={{color: "black", margin: "1%"}}
+                    style={{color: "black", margin: "1%",fontFamily:'none'}}
                     onChange={props.handleChange}
                     onBlur={props.handleBlur}
                     value={props.values.statements[0]}
@@ -124,15 +124,15 @@ const WorldCreationForm = (props) => (
                 </Row>
                
               </Col>
-              <Col style={{border: "2px solid #8A959E", borderRadius: "10px"}}>
+              <Col style={{border: "2px solid #8A959E", borderRadius: "10px",fontFamily:'none'}}>
                 <Row style={{padding: "5%"}}>
-                  <label>Statement #2</label>
+                  <label>2</label>
                 </Row>
                 <Row>
                   <FormControl
                     as='textarea'
                     type="text"
-                    style={{color: "black", margin: "1%"}}
+                    style={{color: "black", margin: "1%",fontFamily:'none'}}
                     onChange={props.handleChange}
                     onBlur={props.handleBlur}
                     value={props.values.statements[1]}
@@ -152,13 +152,13 @@ const WorldCreationForm = (props) => (
                 }}
               >
                 <Row style={{padding: "5%"}}>
-                  <label>Statement #3</label>
+                  <label>3</label>
                 </Row>
                 <Row>
                   <FormControl
                   as='textarea'
                     type="text"
-                    style={{color: "black", margin: "1%"}}
+                    style={{color: "black", margin: "1%",fontFamily:'none'}}
                     onChange={props.handleChange}
                     onBlur={props.handleBlur}
                     value={props.values.statements[2]}
@@ -173,7 +173,7 @@ const WorldCreationForm = (props) => (
             <Row style={{marginTop: "3%"}}>
               <Col>
                 <Button variant="success" type="submit">
-                  Lock World In
+                  NEXT
                 </Button>
               </Col>
             </Row>
