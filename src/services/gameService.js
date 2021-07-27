@@ -37,7 +37,7 @@ let gameObject = {
     },
     skills:[]
   },
-  current: false,
+  
 };
 const initializeGame = async () => {
   //build game state from database

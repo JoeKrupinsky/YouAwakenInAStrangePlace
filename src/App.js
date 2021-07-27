@@ -12,7 +12,43 @@ import SkillDice from './components/dice/SkillDice'
 import ObliterationPage from "./components/pages/ObliterationPage.jsx";
 
 function App() {
-  const [gameInfo,setGameInfo]=useState({});
+  const [gameInfo,setGameInfo]=useState({
+    "loaded": false,
+    "world": {
+        "genre": "GENRE",
+        "adjective": "ADJECTIVE",
+        "location": "LOCATION",
+        "statements": [
+            "STATEMENT PLACEHOLDER",
+        ]
+    },
+    "players": {
+        "player1": {
+            "id": 1,
+            "name": "PLAYER 1",
+            "description": "PLAYER 1 DESCRIPTION",
+            "health": 10,
+            "resources": 0
+        },
+        "player2": {
+            "id": 2,
+            "name": "PLAYER 2",
+            "description": "PLAYER 2 DESCRIPTION",
+            "health": 10,
+            "resources": 0
+        },
+        "player3": {
+            "id": 3,
+            "name": "PLAYER 3",
+            "description": "PLAYER 3 DESCRIPTION",
+            "health": 10,
+            "resources": 0
+        },
+        "skills": [
+            '1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16'
+        ]
+    }
+});
   const [readyState,setReadyState]=useState(false);
   const infoLoaded=(data)=>{
     setGameInfo(data);
