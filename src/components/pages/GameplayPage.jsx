@@ -6,12 +6,7 @@ import {WorldCard} from "../world/WorldCard";
 import {initializeGame} from "../../services/gameService";
 
 const GameplayPage = (props) => {
-  // const [ready,setReady] = useState(props.ready);
-  //  useEffect(()=>{
-  //    if(!ready)
-  //      window.location.replace('/loading');
 
-  //  })
   return (
     <React.Fragment>
       {props.info.loaded ? (
@@ -19,7 +14,7 @@ const GameplayPage = (props) => {
           defaultActiveKey="players"
           transition={false}
           id="gameplay-tabs"
-          style={{color: "black", fontFamily: "TypeWriter"}}
+          style={{ fontFamily: "Typewriter",fontSize:'.7em'}}
         >
           <Tab eventKey="players" title="PLAYERS">
             <div style={{marginTop: "5%"}}>
@@ -35,7 +30,7 @@ const GameplayPage = (props) => {
             </div>
           </Tab>
 
-          <Tab eventKey="world" title="THE WORLD">
+          <Tab eventKey="world" title="WORLD">
             <div>
               <WorldCard world={props.info.world} />
             </div>
@@ -45,6 +40,7 @@ const GameplayPage = (props) => {
             <p></p>
             <Button
               size="lg"
+              style={{fontFamily: "Typewriter"}}
               variant="danger"
               onClick={(e) => {
                 e.preventDefault();

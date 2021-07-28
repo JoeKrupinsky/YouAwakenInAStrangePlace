@@ -11,16 +11,16 @@ class SkillV2 extends React.Component {
     return (
       <React.Fragment>
         <Button
-        variant='primary'
+        variant='outline-dark'
           className="col-3"
           id={this.props.skill}
           key={this.props.skill}
           onClick={this.props.setSkillName}
           style={{
-            color: "white",
+            
             fontSize: ".6em",
             borderRadius:'10px',
-            border: "2px solid black",
+            border: "1px solid black",
             fontFamily:'TypeWriter',
             // margin:'1%',
             padding: "15px 10px"

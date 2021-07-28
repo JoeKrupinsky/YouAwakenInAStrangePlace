@@ -7,7 +7,6 @@ import RulesPage from "./components/pages/RulesPage";
 import { Route, Switch } from "react-router-dom";
 import GameplayPage from "./components/pages/GameplayPage";
 import LoadingPage from './components/pages/LoadingPage'
-import SkillDice from './components/dice/SkillDice'
 
 import ObliterationPage from "./components/pages/ObliterationPage.jsx";
 
@@ -59,14 +58,14 @@ function App() {
     <div className="App">
       <header
         className="App-header"
-        style={{ height: "100px", backgroundColor: "grey" }}
+        style={{ backgroundColor: "grey",maxHeight:'80%' }}
       >
         <Switch>
           <Route path="/" exact={true}>
             <LandingPage />
           </Route>
           <Route path="/rules" exact={true}>
-            <RulesPage />
+          <CardLayout content={<RulesPage />} />
           </Route>
           <Route path="/setup">
             <NewGameSetup />

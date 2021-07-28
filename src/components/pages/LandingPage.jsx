@@ -36,18 +36,13 @@ function LandingPage(props) {
           <Card.Body>
             <Row>
               <Col>
-                <Button variant="primary" href="/setup">
+                <Button variant="primary" size='lg' href="/setup">
                   START
                 </Button>
               </Col>
               <Col>
-                <Button variant="success" href="/loading">
-                  CONTINUE
-                </Button>
-              </Col>
-              <Col>
-                <Button variant="danger" href="/rules">
-                  RULES
+                <Button variant="danger" size='lg' href="/rules">
+                  CORE TENETS
                 </Button>
               </Col>
             </Row>

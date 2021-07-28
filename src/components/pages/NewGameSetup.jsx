@@ -20,6 +20,7 @@ function NewGameSetup(props) {
     "Player Two",
     "Player Three",
   ]);
+  const [enableButton,setEnableButton] = useState(false);
   const initializeGame = async () => {
     await props.getState();
     window.location.replace("/play");
@@ -110,7 +111,7 @@ function NewGameSetup(props) {
       .catch((err) => onSKillAddError(err));
   };
   const onSkillAddSuccess = (res) => {
-    console.log(res);
+    setEnableButton(true);
   };
   const onSkillAddError = (err) => {
     console.log(err);
@@ -134,7 +135,7 @@ function NewGameSetup(props) {
       <Card.Body>
         <h5>ROLL FOR CREATION ORDER</h5>
         <DiceRoller />
-        <h5 className="col-12" onClick={() => setWOpen(!wOpen)}>
+        <h5 className="col-12" >
           WHERE ARE YOU?
         </h5>
         <Collapse in={wOpen}>
@@ -145,7 +146,7 @@ function NewGameSetup(props) {
         <h5
           className="col-12"
           style={{marginTop: "1%"}}
-          onClick={() => setPOpen(!pOpen)}
+         
         >
           WHO ARE YOU?
         </h5>
@@ -156,7 +157,7 @@ function NewGameSetup(props) {
         </Collapse>
         <Row>
           <Col>
-            <h5 onClick={() => setSOpen(!sOpen)}>CHOOSE YOUR SKILLS</h5>
+            <h5 >CHOOSE YOUR SKILLS</h5>
           </Col>
         </Row>
         <Collapse in={sOpen}>
@@ -170,13 +171,17 @@ function NewGameSetup(props) {
         </Collapse>
       </Card.Body>
       <Card.Footer>
-        <Link
+        {enableButton ? (<Link
           
           to="/loading" as={Button}>
-          <Button variant="success" size="lg">
-            YOU AWAKEN IN A STRANGE PLACE...
+          <Button variant="info" size="lg">
+            AWAKEN...
           </Button>
-        </Link>
+        </Link>):(
+          <Button disabled variant="danger" size="lg">
+            NOT YET...
+          </Button>
+        )}
       </Card.Footer>
     </Card>
   );

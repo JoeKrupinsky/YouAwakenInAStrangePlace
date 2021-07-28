@@ -7,13 +7,13 @@ const CardLayout = (props) => {
       <Card
         style={{
           color: "black",
-          fontFamily: "EarthMomma",
+          fontFamily: "TypeWriter",
         padding:'5%',
           minWidth: "100%",
           borderRadius: "5%",
         }}
       >
-          <Card.Header></Card.Header>
+          <Card.Header><h5>YOU AWAKEN IN A STRANGE PLACE</h5></Card.Header>
         <Card.Body>{props.content}</Card.Body>
       </Card>
     </Container>

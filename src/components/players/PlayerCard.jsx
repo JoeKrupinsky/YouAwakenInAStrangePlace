@@ -74,6 +74,7 @@ function PlayerCard(props) {
           borderRadius: "10px",
           border: "3px solid #525252",
           fontFamily: "Typewriter",
+          margin: "5px",
           color: "black",
           backgroundColor: "#f0f0f0",
         }}
@@ -81,84 +82,94 @@ function PlayerCard(props) {
         <Card.Header>
           <Row>
             <Col>
-              <p title={props.player.description} style={{fontSize: ".75em"}}>
+              <p
+                title={props.player.description}
+                style={{fontSize: ".75em", paddingTop: "3%"}}
+              >
                 {props.player.name.toUpperCase() || "NO NAME"}
               </p>
             </Col>
-            <Col  style={{borderLeft:'2px solid gray',paddingLeft:'5%'}}>
+            <Col style={{borderLeft: "2px solid gray", paddingLeft: "5%"}}>
               <Row>
-                <p
-                  style={{
-                    fontSize: ".8em",
-
-                    color: "black",
-                  }}
-                >
-                  Health: {health}{" "}
-                </p>
-              </Row>
-              <Row>
-                <ButtonGroup onClick={resourceHandler}>
+                <Col>
+                  {" "}
+                  <p
+                    style={{
+                      fontSize: ".5em",
+                      color: "black",
+                    }}
+                  >
+                    Health {health}
+                  </p>
+                </Col>
+                <Col>
                   <Button
-                    size="lg"
+                    size="md"
+                    onClick={resourceHandler}
                     variant="outline-success"
                     id={`${props.player.id}-hPlus`}
                   >
                     HEAL
                   </Button>
+                </Col>
+                <Col>
+                  {" "}
                   <Button
-                    size="lg"
+                    size="md"
+                    onClick={resourceHandler}
                     variant="outline-danger"
                     id={`${props.player.id}-hMinus`}
                   >
                     HURT
                   </Button>
-                </ButtonGroup>
+                </Col>
               </Row>
             </Col>
 
-            
-            <Col style={{borderLeft:'2px solid gray',paddingLeft:'5%'}}>
+            <Col style={{borderLeft: "2px solid gray", paddingLeft: "5%"}}>
               <Row>
-                {" "}
-                <p
-                  style={{
-                    fontSize: ".8em",
+                <Col>
+                  {" "}
+                  <p
+                    style={{
+                      fontSize: ".5em",
 
-                    color: "black",
-                  }}
-                >
-                  Resources: {resources}
-                </p>
-              </Row>
-              <Row>
-                <ButtonGroup onClick={resourceHandler}>
+                      color: "black",
+                    }}
+                  >
+                    Resources {resources}
+                  </p>
+                </Col>
+                <Col>
                   <Button
-                    size="lg"
+                    size="md"
+                    onClick={resourceHandler}
                     variant="outline-success"
                     id={`${props.player.id}-rPlus`}
                   >
                     FIND
                   </Button>
-                  
+                </Col>
+                <Col>
+                  {" "}
                   <Button
-                    size="lg"
+                    size="md"
+                    onClick={resourceHandler}
                     variant="outline-danger"
                     id={`${props.player.id}-rMinus`}
                   >
                     USE
                   </Button>
-                </ButtonGroup>
+                </Col>
               </Row>
             </Col>
-           
           </Row>
         </Card.Header>
         <Card.Body>
           <Row style={{marginTop: "5px"}}>
             {/* Skills */}
             <Col>
-              <Row style={{borderBottom: "1px dashed grey"}}>
+              <Row style={{borderBottom: "2px dashed grey"}}>
                 <Col>
                   <h4>
                     {props.skills[0]
@@ -175,7 +186,7 @@ function PlayerCard(props) {
                   </h4>
                 </Col>
               </Row>
-              <Row style={{borderBottom: "1px dashed grey"}}>
+              <Row >
                 <Col>
                   <h4>
                     {props.skills[3]
@@ -195,38 +206,6 @@ function PlayerCard(props) {
             </Col>
           </Row>
         </Card.Body>
-        {/* <Card.Footer>
-          <Row>
-            <Col>
-              <p style={{ fontSize: ".5em" }}>RESOURCES:</p>
-            </Col>
-          </Row>
-
-          <Row>
-            <Col>
-              <Button
-                variant="dark"
-                size="sm"
-                id={`${props.player.id}-rPlus`}
-                onClick={resourceHandler}
-              >
-                +
-              </Button>
-            </Col>
-
-            <h5>{formatRes()}</h5>
-            <Col>
-              <Button
-                variant="light"
-                size="sm"
-                id={`${props.player.id}-rMinus`}
-                onClick={resourceHandler}
-              >
-                -
-              </Button>
-            </Col>
-          </Row>
-        </Card.Footer> */}
       </Card>
     </React.Fragment>
   );
