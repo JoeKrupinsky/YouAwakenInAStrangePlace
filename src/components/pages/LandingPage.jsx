@@ -1,14 +1,15 @@
-import React from "react";
+import React,{useEffect,useState} from "react";
 import {Button, Container, Row, Card, Col} from "react-bootstrap";
 
 function LandingPage(props) {
+
   return (
     <React.Fragment>
       <Container>
         <Card
           bg="light"
           style={{
-            fontFamily: "MagnificentSerif",
+            fontFamily: "Typewriter",
             color: "black",
             borderRadius: "10px",
             padding: "5%",
@@ -24,7 +25,7 @@ function LandingPage(props) {
             </Row>
             <Row>
               <Col></Col>
-              <h5> FULLY IMPORIVSED RPG FOR 3 PLAYERS AND A DM</h5>
+              <h5> FULLY IMPROVISED RPG FOR 3 PLAYERS AND A DM</h5>
               <Col></Col>
             </Row>
             <Row>

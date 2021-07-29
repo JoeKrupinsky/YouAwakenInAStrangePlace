@@ -51,8 +51,7 @@ function App() {
   const [readyState,setReadyState]=useState(false);
   const infoLoaded=(data)=>{
     setGameInfo(data);
-    setReadyState(true);
-   
+    setReadyState(true); 
   }
   return (
     <div className="App">

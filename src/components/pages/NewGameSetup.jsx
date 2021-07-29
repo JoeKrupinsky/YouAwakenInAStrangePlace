@@ -1,15 +1,15 @@
-import {React, useState} from "react";
+import {React, useState,useEffect} from "react";
 import {Button, Collapse, Card, Row, Col} from "react-bootstrap";
 import {Link} from "react-router-dom";
 import PlayerCreationForm from "../players/PlayerCreationForm";
 import WorldCreationForm from "../world/WorldCreationForm";
 import DiceRoller from "../dice/DiceRoller";
 import SkillSelection from "../skills/SkillSelection";
-
 import * as skillSvc from "../../services/skillService";
 import * as worldSvc from "../../services/worldService";
 import * as stSvc from "../../services/statementService";
 import * as pSvc from "../../services/playerService";
+import * as endSvc from '../../services/endService';
 
 function NewGameSetup(props) {
   const [wOpen, setWOpen] = useState(true);
@@ -20,11 +20,29 @@ function NewGameSetup(props) {
     "Player Two",
     "Player Three",
   ]);
+  const [dataChecked,setDataChecked] = useState(false);
+  useEffect(()=>{
+    if(!dataChecked)
+    worldSvc.getAll().then(onGetAllSuccess).catch(onGetAllError)
+  })
+  const onGetAllSuccess=(res)=>{
+    console.log(res);
+    let resData = res.data.length;
+    if(resData > 0)
+    {
+      endSvc.endGame();
+    }
+    setDataChecked(true);
+  }
+  const onGetAllError=(err)=>{
+    console.log(err);
+    setDataChecked(true);
+  }
   const [enableButton,setEnableButton] = useState(false);
-  const initializeGame = async () => {
-    await props.getState();
-    window.location.replace("/play");
-  };
+  // const initializeGame = async () => {
+  //   await props.getState();
+  //   window.location.replace("/play");
+  // };
   const buttonCallback = (id) => {
     switch (id) {
       case "player":
@@ -67,7 +85,7 @@ function NewGameSetup(props) {
       .then((result) => console.log(result))
       .catch((err) => console.log(err));
   };
-  const onWorldAddError = (err) => {};
+  const onWorldAddError = (err) => {console.log(err)};
 
   const submitPlayers = (playerData) => {
     setPOpen(!pOpen);
