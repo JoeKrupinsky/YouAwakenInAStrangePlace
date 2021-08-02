@@ -13,18 +13,24 @@ class PlayerCardBank extends React.Component {
             <Row>
               <PlayerCard
                 player={this.props.players.player1}
+                health={10}
+                res={0}
                 skills={this.props.skills.slice(0, 4)}
               />
             </Row>
             <Row>
               <PlayerCard
                 player={this.props.players.player2}
+                health={10}
+                res={0}
                 skills={this.props.skills.slice(4, 8)}
               />
             </Row>
             <Row>
               <PlayerCard
                 player={this.props.players.player3}
+                health={10}
+                res={0}
                 skills={this.props.skills.slice(8, 12)}
               />
             </Row>{" "}

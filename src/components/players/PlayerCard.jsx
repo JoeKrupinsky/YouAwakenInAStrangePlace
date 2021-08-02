@@ -3,8 +3,8 @@ import {Row, Col, Card, ButtonGroup, Button} from "react-bootstrap";
 
 function PlayerCard(props) {
 
-  const [health, setHealth] = useState(Number(localStorage.getItem(`${props.player.name} health`) || props.player.health));
-  const [resources, setResources] = useState(Number(localStorage.getItem(`${props.player.name} resources`) || props.player.resources));
+  const [health, setHealth] = useState(Number(localStorage.getItem(`${props.player.name} health`) || props.health));
+  const [resources, setResources] = useState(Number(localStorage.getItem(`${props.player.name} resources`) || props.res));
 
   const resourceHandler = (e) => {
     let [pId, bId] = e.target.id.split("-");
