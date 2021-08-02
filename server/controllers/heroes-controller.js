@@ -1,7 +1,7 @@
 const knex = require('../db/db')
 
-//GetAll,Add,Remove,Reset
-
+//CURRENTLY UNUSED
+//API CONTROLLER FOR A 'HALL OF HEROES' FEATURE
 exports.add = async (req, res) => {
   knex('heroes')
     .insert({
@@ -49,7 +49,7 @@ exports.remove = async (req, res) => {
 exports.reset = async (req, res) => {
   knex
     .select('*') // select all records
-    .from('heroes') // from 'books' table
+    .from('heroes') // from 'heroes' table
     .truncate() // remove the selection
     .then(() => {
       // Send a success message in response

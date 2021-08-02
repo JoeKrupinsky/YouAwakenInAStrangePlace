@@ -2,33 +2,10 @@ import React, {useState} from "react";
 import {Row, Col, Card, ButtonGroup, Button} from "react-bootstrap";
 
 function PlayerCard(props) {
-  const [health, setHealth] = useState(props.player.health);
-  const [resources, setResources] = useState(props.player.resources);
-  // let formatRes = () => {
-  //   let numString = "";
 
-  //   switch (resources) {
-  //     case 1:
-  //       numString += "X|X|X|X|O";
-  //       break;
-  //     case 2:
-  //       numString += "X|X|X|O|O";
-  //       break;
-  //     case 3:
-  //       numString += "X|X|O|O|O";
-  //       break;
-  //     case 4:
-  //       numString += "X|O|O|O|O";
-  //       break;
-  //     case 5:
-  //       numString += "O|O|O|O|O";
-  //       break;
-  //     default:
-  //       numString += "X|X|X|X|X";
-  //       break;
-  //   }
-  //   return numString;
-  // };
+  const [health, setHealth] = useState(Number(localStorage.getItem(`${props.player.name} health`) || props.player.health));
+  const [resources, setResources] = useState(Number(localStorage.getItem(`${props.player.name} resources`) || props.player.resources));
+
   const resourceHandler = (e) => {
     let [pId, bId] = e.target.id.split("-");
     let newRes;
@@ -36,18 +13,22 @@ function PlayerCard(props) {
     switch (bId) {
       case "rPlus":
         newRes = resources + 1;
+        localStorage.setItem(`${props.player.name} resources`,newRes)
         setResources(newRes);
         break;
       case "rMinus":
         newRes = resources - 1;
+        localStorage.setItem(`${props.player.name} resources`,newRes)
         setResources(newRes);
         break;
       case "hPlus":
         newHealth = health + 1;
+        localStorage.setItem(`${props.player.name} health`,newHealth);
         setHealth(newHealth);
         break;
       case "hMinus":
         newHealth = health - 1;
+        localStorage.setItem(`${props.player.name} health`,newHealth);
         setHealth(newHealth);
         break;
       default:
@@ -99,7 +80,7 @@ function PlayerCard(props) {
                       color: "black",
                     }}
                   >
-                    Health {health}
+                    Health {localStorage.getItem(`${props.player.name} health` || health)}
                   </p>
                 </Col>
                 <Col>
@@ -137,7 +118,7 @@ function PlayerCard(props) {
                       color: "black",
                     }}
                   >
-                    Resources {resources}
+                    Resources {localStorage.getItem(`${props.player.name} resources` || health)}
                   </p>
                 </Col>
                 <Col>

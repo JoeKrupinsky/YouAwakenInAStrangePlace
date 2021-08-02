@@ -1,6 +1,7 @@
 import axios from "axios";
 let endpoint = 'http://localhost:4001/api/heroes/'
-
+//CURRENTLY USED
+//HALL OF HEROES ENDPOINT
 
 let add = (payload) => {
     const config = {

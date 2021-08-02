@@ -4,6 +4,7 @@ import * as svc from '../../services/endService'
 
 function ObliterationPage(props) {
     const finish = () => {
+        localStorage.clear();
         svc.endGame();
         window.location.replace('/');
     };
