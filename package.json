@@ -1,6 +1,9 @@
 {
   "name": "you-awaken-in-a-strange-place",
   "version": "1.0.0",
+  "engines": {
+    "node": "14.x"
+  },
   "description": "Companion app for the one-shot ttrpg You Awaken In A Strange Place",
   "private": false,
   "license": "MIT",
