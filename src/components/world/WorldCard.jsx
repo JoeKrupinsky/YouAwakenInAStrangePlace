@@ -2,7 +2,8 @@ import React, {useState, useEffect} from "react";
 import {Button, Col, Row, Card, FormControl, Container} from "react-bootstrap";
 import {Formik} from "formik";
 export const WorldCard = (props) => {
-  const [statements, setStatements] = useState(localStorage.getItem('statements').split(',')||props.world.statements);
+
+  const [statements, setStatements] = useState(props.world.statements||localStorage.getItem('statements').split(','));
   const [formattedStatements, setFormattedStatements] = useState([]);
   const formatStatements = () => {
     let newArr = [];
@@ -34,7 +35,7 @@ export const WorldCard = (props) => {
         <Card.Header>
           <h1>
             The {props.world.adjective} {props.world.location}: A{" "}
-            {props.world.genre} adventure.
+            {props.world.genre} Adventure.
           </h1>
         </Card.Header>
         <Card.Body>

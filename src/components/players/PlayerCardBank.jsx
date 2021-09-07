@@ -13,24 +13,24 @@ class PlayerCardBank extends React.Component {
             <Row>
               <PlayerCard
                 player={this.props.players.player1}
-                health={10}
-                res={0}
+                health={Number(localStorage.getItem(`${this.props.players.player1.name} health`))||this.props.players.player1.health}
+                res={Number(localStorage.getItem(`${this.props.players.player1.name} resources`))||this.props.players.player1.resources}
                 skills={this.props.skills.slice(0, 4)}
               />
             </Row>
             <Row>
               <PlayerCard
                 player={this.props.players.player2}
-                health={10}
-                res={0}
+                health={Number(localStorage.getItem(`${this.props.players.player2.name} health`))||this.props.players.player2.health}
+                res={Number(localStorage.getItem(`${this.props.players.player2.name} resources`))||this.props.players.player2.resources}
                 skills={this.props.skills.slice(4, 8)}
               />
             </Row>
             <Row>
               <PlayerCard
                 player={this.props.players.player3}
-                health={10}
-                res={0}
+                health={Number(localStorage.getItem(`${this.props.players.player3.name} health`))||this.props.players.player3.health}
+                res={Number(localStorage.getItem(`${this.props.players.player3.name} resources`))||this.props.players.player3.resources}
                 skills={this.props.skills.slice(8, 12)}
               />
             </Row>{" "}

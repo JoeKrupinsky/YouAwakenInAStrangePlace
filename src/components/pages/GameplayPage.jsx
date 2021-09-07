@@ -6,7 +6,6 @@ import {WorldCard} from "../world/WorldCard";
 import {initializeGame} from "../../services/gameService";
 
 const GameplayPage = (props) => {
-
   return (
     <React.Fragment>
       {props.info.loaded ? (
@@ -14,7 +13,7 @@ const GameplayPage = (props) => {
           defaultActiveKey="players"
           transition={false}
           id="gameplay-tabs"
-          style={{ fontFamily: "Typewriter",fontSize:'.7em'}}
+          style={{fontFamily: "Typewriter", fontSize: ".7em"}}
         >
           <Tab eventKey="players" title="PLAYERS">
             <div style={{marginTop: "5%"}}>
@@ -52,18 +51,21 @@ const GameplayPage = (props) => {
           </Tab>
         </Tabs>
       ) : (
+        //Page refreshed and state dropped
+        //Direct user to Loading page to reload
         <Jumbotron style={{fontFamily: "Typewriter"}}>
           Game data is missing. Please click here to reload.
-          <Row style={{marginTop:'10%'}}>
-            <Col> <Button
-              variant="danger"
-              size='lg'
-              onClick={(e) => window.location.replace("/loading")}
-            >
-              Reload Game Data
-            </Button></Col>
-            {" "}
-           
+          <Row style={{marginTop: "10%"}}>
+            <Col>
+              {" "}
+              <Button
+                variant="danger"
+                size="lg"
+                onClick={(e) => window.location.replace("/loading")}
+              >
+                Reload Game Data
+              </Button>
+            </Col>{" "}
           </Row>
         </Jumbotron>
       )}

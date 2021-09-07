@@ -1,5 +1,5 @@
 import React from "react";
-import {Card, Row, Col,Button} from "react-bootstrap";
+import {Card, Row, Col, Button} from "react-bootstrap";
 
 class RulesPage extends React.PureComponent {
   render() {
@@ -9,7 +9,7 @@ class RulesPage extends React.PureComponent {
           <Card.Header>
             <h1>CORE TENETS</h1>
           </Card.Header>
-          <Card.Body style={{paddingLeft:'3%'}}>
+          <Card.Body style={{paddingLeft: "3%"}}>
             <Row>
               <h2>
                 1. Everyone comes to the game <b>unprepared</b>.
@@ -17,12 +17,14 @@ class RulesPage extends React.PureComponent {
             </Row>
             <Row>
               <h2>
-                2. Anything <b>said</b> about the world is{" "}
-                <b>true</b> about the world.
+                2. Anything <b>said</b> about the world is <b>true</b> about the
+                world.
               </h2>
             </Row>
             <Row>
-              <h2>3. The game must be finished in <b>one session</b>.</h2>
+              <h2>
+                3. The game must be finished in <b>one session</b>.
+              </h2>
             </Row>
           </Card.Body>
           <Card.Footer>
@@ -49,7 +51,17 @@ class RulesPage extends React.PureComponent {
             </Row>
           </Card.Footer>
         </Card>
-        <Row><Col><Button variant='primary' size='sm' onClick={e=>window.location.replace('/')}>GO BACK</Button></Col></Row>
+        <Row>
+          <Col>
+            <Button
+              variant="primary"
+              size="sm"
+              onClick={(e) => window.location.replace("/")}
+            >
+              GO BACK
+            </Button>
+          </Col>
+        </Row>
       </React.Fragment>
     );
   }

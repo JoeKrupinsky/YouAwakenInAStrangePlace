@@ -10,7 +10,7 @@ class SkillDice extends React.Component {
     this.state = {
       result: 0,
       modifier: 0,
-      resultColor:'black'
+      resultColor: "black",
     };
   }
   rollDoneCallback = (dice) => {
@@ -19,15 +19,12 @@ class SkillDice extends React.Component {
       let newState = {...prevState};
       let newNum = Number(dice) + Number(this.state.modifier);
       let newColor;
-      if(newNum <= 6)
-      {
-        newColor = 'red';
-      }
-      else if(newNum>6 && newNum <=9){
-        newColor = 'blue';
-      }
-      else {
-        newColor= 'green';
+      if (newNum <= 6) {
+        newColor = "red";
+      } else if (newNum > 6 && newNum <= 9) {
+        newColor = "blue";
+      } else {
+        newColor = "green";
       }
       newState.result = newNum;
       newState.resultColor = newColor;
@@ -35,45 +32,83 @@ class SkillDice extends React.Component {
     });
   };
   setModifier = (val) => {
-    
     this.setState({modifier: val});
   };
-  getResultColor=()=>{
-    
-  }
+  getResultColor = () => {};
   render(props) {
     return (
       <React.Fragment>
-        <Container style={{fontFamily:'TypeWriter'}}>
+        <Container style={{fontFamily: "TypeWriter"}}>
           <Row></Row>
           <Row>
-              <Col></Col>
+            <Col></Col>
             <Row>
               <Col>
-                <Button size="sm" variant="success" onClick={e=>{this.setModifier(-2)}}>-2</Button>
+                <Button
+                  size="sm"
+                  variant="success"
+                  onClick={(e) => {
+                    this.setModifier(-2);
+                  }}
+                >
+                  -2
+                </Button>
               </Col>
               <Col>
-                
-                <Button size="sm" variant="success" onClick={e=>{this.setModifier(-1)}}>-1</Button>
+                <Button
+                  size="sm"
+                  variant="success"
+                  onClick={(e) => {
+                    this.setModifier(-1);
+                  }}
+                >
+                  -1
+                </Button>
               </Col>
               <Col>
-                
-                <Button size="sm" variant="success" onClick={e=>{this.setModifier(0)}}>0</Button>
+                <Button
+                  size="sm"
+                  variant="success"
+                  onClick={(e) => {
+                    this.setModifier(0);
+                  }}
+                >
+                  0
+                </Button>
               </Col>
               <Col>
-                
-                <Button size="sm" variant="success" onClick={e=>{this.setModifier(1)}}>+1</Button>
+                <Button
+                  size="sm"
+                  variant="success"
+                  onClick={(e) => {
+                    this.setModifier(1);
+                  }}
+                >
+                  +1
+                </Button>
               </Col>
               <Col>
-               
-                <Button size="sm" variant="success" onClick={e=>{this.setModifier(2)}}>+2</Button>
+                <Button
+                  size="sm"
+                  variant="success"
+                  onClick={(e) => {
+                    this.setModifier(2);
+                  }}
+                >
+                  +2
+                </Button>
               </Col>
             </Row>
             <Col></Col>
           </Row>
           <Row>--------------------------------------------</Row>
           <Row>
-              <Col><h3>CHECK: {this.props.currentSkill} {this.state.modifier >= 0 ? "+":"" } {this.state.modifier} </h3></Col>
+            <Col>
+              <h3>
+                CHECK: {this.props.currentSkill}{" "}
+                {this.state.modifier >= 0 ? "+" : ""} {this.state.modifier}{" "}
+              </h3>
+            </Col>
             <Col>
               <div>
                 <ReactDice
@@ -89,9 +124,22 @@ class SkillDice extends React.Component {
                 />
               </div>
             </Col>
-            <Col>             
-                {this.state.result == 0 ? <h3>Result:</h3> : <h3 style={{color:this.state.resultColor}}>Result: {this.state.result}</h3>}
+            <Col>
+              {this.state.result == 0 ? (
+                <h3>Result:</h3>
+              ) : (
+                <h3 style={{color: this.state.resultColor}}>
+                  Result: {this.state.result}
+                </h3>
+              )}
             </Col>
+          </Row>
+          <Row>
+            <Col></Col>
+            <h4 style={{color: "red"}}>Under 7: Failure |</h4>
+            <h4 style={{color: "blue"}}>| 7 to 9: Mixed Success |</h4>{" "}
+            <h4 style={{color: "green"}}>| 10 or Higher: Success</h4>
+            <Col></Col>
           </Row>
         </Container>
       </React.Fragment>

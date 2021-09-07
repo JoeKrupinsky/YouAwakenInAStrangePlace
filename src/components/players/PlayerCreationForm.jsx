@@ -15,8 +15,9 @@ const PlayerCreationForm = (props) => (
     >
       {(props) => (
         <form onSubmit={props.handleSubmit}>
-          <Container>
-            <Row>
+          <Container >
+
+            <Row style={{fontSize:'0.85em'}}>
               <Col
                 style={{
                   marginRight: "5%",
@@ -41,7 +42,7 @@ const PlayerCreationForm = (props) => (
                     <div id="feedback">{props.errors.names}</div>
                   )}
                 </Row>
-                <Row style={{padding: "5%"}}>
+                <Row style={{padding: "5%",fontSize:'0.8em'}}>
                   <label>
                     DESCRIBE YOURSELF,{" "}
                     {props.values.names[0].split(" ")[0].toUpperCase()||"PLAYER ONE"}

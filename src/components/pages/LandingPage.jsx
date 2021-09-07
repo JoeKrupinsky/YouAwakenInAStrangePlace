@@ -1,8 +1,7 @@
-import React,{useEffect,useState} from "react";
+import React, {useEffect, useState} from "react";
 import {Button, Container, Row, Card, Col} from "react-bootstrap";
 
 function LandingPage(props) {
-
   return (
     <React.Fragment>
       <Container>
@@ -19,7 +18,7 @@ function LandingPage(props) {
             <Row>
               <Col></Col>
               <h1 style={{textShadow: "-4px 5px 11px black"}}>
-               YOU AWAKEN IN A STRANGE PLACE
+                YOU AWAKEN IN A STRANGE PLACE
               </h1>
               <Col></Col>
             </Row>
@@ -37,12 +36,12 @@ function LandingPage(props) {
           <Card.Body>
             <Row>
               <Col>
-                <Button variant="primary" size='lg' href="/setup">
+                <Button variant="primary" size="lg" href="/setup">
                   START
                 </Button>
               </Col>
               <Col>
-                <Button variant="danger" size='lg' href="/rules">
+                <Button variant="danger" size="lg" href="/rules">
                   CORE TENETS
                 </Button>
               </Col>
@@ -56,7 +55,9 @@ function LandingPage(props) {
             </Row>
           </Card.Footer>
         </Card>
-        <p style={{fontSize: ".3em",float:'right'}}>App Design by Joe Krupinsky</p>
+        <p style={{fontSize: ".3em", float: "right"}}>
+          App Design by Joe Krupinsky
+        </p>
       </Container>
     </React.Fragment>
   );

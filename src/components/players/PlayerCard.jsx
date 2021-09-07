@@ -2,33 +2,40 @@ import React, {useState} from "react";
 import {Row, Col, Card, ButtonGroup, Button} from "react-bootstrap";
 
 function PlayerCard(props) {
-
-  const [health, setHealth] = useState(Number(localStorage.getItem(`${props.player.name} health`) || props.health));
-  const [resources, setResources] = useState(Number(localStorage.getItem(`${props.player.name} resources`) || props.res));
+  //Set initial values for health and resources if not in localstorage
+  //Otherwise, get values from localstorage
+  const [health, setHealth] = useState(
+    
+      Number(localStorage.getItem(`${props.player.name} health`)) || props.player.health
+  );
+  const [resources, setResources] = useState(   
+      Number(localStorage.getItem(`${props.player.name} resources`||props.player.resources))
+  );
 
   const resourceHandler = (e) => {
     let [pId, bId] = e.target.id.split("-");
     let newRes;
     let newHealth;
+    //Button handlers for health and resources
     switch (bId) {
       case "rPlus":
         newRes = resources + 1;
-        localStorage.setItem(`${props.player.name} resources`,newRes)
+        localStorage.setItem(`${props.player.name} resources`, newRes);
         setResources(newRes);
         break;
       case "rMinus":
         newRes = resources - 1;
-        localStorage.setItem(`${props.player.name} resources`,newRes)
+        localStorage.setItem(`${props.player.name} resources`, newRes);
         setResources(newRes);
         break;
       case "hPlus":
         newHealth = health + 1;
-        localStorage.setItem(`${props.player.name} health`,newHealth);
+        localStorage.setItem(`${props.player.name} health`, newHealth);
         setHealth(newHealth);
         break;
       case "hMinus":
         newHealth = health - 1;
-        localStorage.setItem(`${props.player.name} health`,newHealth);
+        localStorage.setItem(`${props.player.name} health`, newHealth);
         setHealth(newHealth);
         break;
       default:
@@ -38,17 +45,6 @@ function PlayerCard(props) {
   };
   return (
     <React.Fragment>
-      {/* 
-        Takes a Player prop that looks like this:
-        {
-            Name:'',
-            Desc:'',
-            HP:10,
-            Skills:[-2,-1,+1,+2],
-            Res:0
-        }
-        */}
-
       <Card
         className="col-10"
         style={{
@@ -57,7 +53,7 @@ function PlayerCard(props) {
           fontFamily: "Typewriter",
           margin: "5px",
           color: "black",
-          backgroundColor: "#f0f0f0",
+          backgroundColor: health <= 0 ? "#EF7171" : "#f0f0f0",
         }}
       >
         <Card.Header>
@@ -80,7 +76,10 @@ function PlayerCard(props) {
                       color: "black",
                     }}
                   >
-                    Health {localStorage.getItem(`${props.player.name} health` || health)}
+                    Health{" "}
+                    {localStorage.getItem(
+                      `${props.player.name} health` 
+                    )|| health}
                   </p>
                 </Col>
                 <Col>
@@ -89,6 +88,7 @@ function PlayerCard(props) {
                     onClick={resourceHandler}
                     variant="outline-success"
                     id={`${props.player.id}-hPlus`}
+                    disabled={health==10}
                   >
                     HEAL
                   </Button>
@@ -100,6 +100,7 @@ function PlayerCard(props) {
                     onClick={resourceHandler}
                     variant="outline-danger"
                     id={`${props.player.id}-hMinus`}
+                    disabled={health==0}
                   >
                     HURT
                   </Button>
@@ -118,7 +119,10 @@ function PlayerCard(props) {
                       color: "black",
                     }}
                   >
-                    Resources {localStorage.getItem(`${props.player.name} resources` || health)}
+                    Resources{" "}
+                    {localStorage.getItem(
+                      `${props.player.name} resources` 
+                    )|| resources}
                   </p>
                 </Col>
                 <Col>
@@ -127,6 +131,7 @@ function PlayerCard(props) {
                     onClick={resourceHandler}
                     variant="outline-success"
                     id={`${props.player.id}-rPlus`}
+                    disabled={resources==5}
                   >
                     FIND
                   </Button>
@@ -138,6 +143,7 @@ function PlayerCard(props) {
                     onClick={resourceHandler}
                     variant="outline-danger"
                     id={`${props.player.id}-rMinus`}
+                    disabled={resources==0}
                   >
                     USE
                   </Button>
@@ -167,7 +173,7 @@ function PlayerCard(props) {
                   </h4>
                 </Col>
               </Row>
-              <Row >
+              <Row>
                 <Col>
                   <h4>
                     {props.skills[3]
